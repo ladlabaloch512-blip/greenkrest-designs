@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenKrest - Blueprint | Precast, Girders, Tiles and Building Materials, Rawalpindi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1d4ed8;
+    --blue-dark:#1e3a8a;
+    --blue-soft:#dbeafe;
+    --blue-line:rgba(29,78,216,.14);
+    --blue-line-strong:rgba(29,78,216,.35);
+    --green:#14532d;
+    --green-bright:#16a34a;
+    --green-soft:#dcfce7;
+    --ink:#17233b;
+    --paper:#ffffff;
+    --paper-dim:#f6f9ff;
+    --split:50%;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Archivo',Arial,sans-serif;
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--blue-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--blue-line) 1px, transparent 1px),
+      linear-gradient(rgba(29,78,216,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(29,78,216,.05) 1px, transparent 1px);
+    background-size:140px 140px, 140px 140px, 28px 28px, 28px 28px;
+    overflow-x:hidden;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- dimension decorations ---------- */
+  .dim{display:flex;align-items:center;gap:10px;color:var(--blue);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+  .dim::before,.dim::after{content:"";height:0;border-top:2px dashed var(--blue-line-strong);flex:1;}
+  .dim .tick{width:9px;height:9px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg);flex:none;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);border:1.5px dashed var(--blue-line-strong);padding:6px 12px;background:#fff;}
+  .eyebrow::before{content:"";width:8px;height:8px;background:var(--green-bright);flex:none;}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);border-bottom:2px solid var(--blue);}
+  .header-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{width:42px;height:42px;flex:none;}
+  .logo-name{font-weight:800;font-size:21px;letter-spacing:.01em;line-height:1;}
+  .logo-name span{color:var(--green);}
+  .logo-sub{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--blue);text-transform:uppercase;margin-top:3px;}
+  nav.main{display:flex;gap:22px;font-weight:600;font-size:14.5px;}
+  nav.main a{padding:6px 2px;border-bottom:2px dashed transparent;}
+  nav.main a:hover{border-bottom-color:var(--blue);color:var(--blue);}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;padding:11px 20px;border:2px solid var(--blue);color:var(--blue);background:#fff;transition:transform .18s ease, background .18s ease, color .18s ease;cursor:pointer;}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--blue-soft);}
+  .btn-green{background:var(--green);border-color:var(--green);color:#fff;}
+  .btn-green:hover{box-shadow:4px 4px 0 rgba(20,83,45,.25);}
+  .btn-blue{background:var(--blue);border-color:var(--blue);color:#fff;}
+  .btn svg{width:17px;height:17px;flex:none;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 30px;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:38px;align-items:center;}
+  .hero h1{font-size:clamp(34px,5vw,56px);line-height:1.04;font-weight:800;letter-spacing:-.01em;margin:18px 0 14px;}
+  .hero h1 .hl-blue{color:var(--blue);}
+  .hero h1 .hl-green{color:var(--green);border-bottom:4px dashed var(--green-bright);}
+  .hero p.lead{font-size:17px;line-height:1.65;color:#3c4a63;max-width:52ch;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;}
+  .hero-meta{display:flex;gap:0;margin-top:30px;border:1.5px dashed var(--blue-line-strong);background:#fff;max-width:520px;}
+  .hero-meta div{flex:1;padding:12px 10px;text-align:center;border-right:1.5px dashed var(--blue-line-strong);}
+  .hero-meta div:last-child{border-right:none;}
+  .hero-meta b{display:block;font-size:20px;color:var(--blue-dark);}
+  .hero-meta span{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#5a6a86;}
+
+  .drawing-card{position:relative;background:#fff;border:2px solid var(--blue);padding:20px 18px 14px;box-shadow:10px 10px 0 var(--blue-soft);}
+  .drawing-card::before,.drawing-card::after{content:"+";position:absolute;font-family:'IBM Plex Mono',monospace;color:var(--blue);font-size:18px;line-height:1;}
+  .drawing-card::before{top:4px;left:8px;}
+  .drawing-card::after{bottom:4px;right:8px;}
+  .drawing-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1.5px dashed var(--blue-line-strong);padding-bottom:9px;margin-bottom:8px;}
+  .drawing-head b{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--blue-dark);text-transform:uppercase;}
+  .drawing-head span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--green);font-weight:600;}
+  .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:drawline 2s ease forwards;}
+  @keyframes drawline{to{stroke-dashoffset:0;}}
+  .badge-rotor{position:absolute;top:-38px;right:-14px;width:104px;height:104px;z-index:3;}
+  .badge-rotor .spin{animation:spinbadge 16s linear infinite;transform-origin:50% 50%;}
+  @keyframes spinbadge{to{transform:rotate(360deg);}}
+  .badge-core{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+  .drawing-foot{display:flex;justify-content:space-between;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#5a6a86;border-top:1.5px dashed var(--blue-line-strong);padding-top:9px;margin-top:6px;letter-spacing:.08em;}
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0;}
+  .sec-head{max-width:720px;margin-bottom:30px;}
+  .sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;line-height:1.12;margin:14px 0 10px;}
+  .sec-head h2 span{color:var(--blue);}
+  .sec-head p{color:#3c4a63;line-height:1.65;font-size:16px;}
+
+  /* ---------- category spec strip ---------- */
+  .cat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .cat{border:1.5px dashed var(--blue-line-strong);background:#fff;padding:16px 16px 13px;position:relative;transition:transform .18s ease, border-color .18s ease;}
+  .cat:hover{transform:translateY(-4px);border-color:var(--blue);}
+  .cat .ref{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--blue);}
+  .cat h3{font-size:17px;font-weight:700;margin:7px 0 4px;}
+  .cat p{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5a6a86;}
+  .cat .count{position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;color:var(--green);border:1.5px solid var(--green);padding:2px 8px;background:var(--green-soft);}
+  .cat .bar{height:5px;background:repeating-linear-gradient(45deg,var(--blue-soft) 0 8px,#fff 8px 16px);border:1px solid var(--blue-line-strong);margin-top:12px;}
+
+  /* ---------- before / after ---------- */
+  .ba-shell{border:2px solid var(--blue);background:#fff;box-shadow:10px 10px 0 var(--blue-soft);padding:16px;}
+  .ba-frame{position:relative;overflow:hidden;border:1.5px dashed var(--blue-line-strong);touch-action:none;cursor:ew-resize;user-select:none;}
+  .ba-scene{display:block;width:100%;height:auto;}
+  .ba-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--split)) 0 0);}
+  .ba-handle{position:absolute;top:0;bottom:0;left:var(--split);width:0;border-left:3px dashed var(--green);transform:translateX(-1.5px);pointer-events:none;}
+  .ba-grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--green);border:3px solid #fff;box-shadow:0 4px 14px rgba(20,83,45,.4);display:flex;align-items:center;justify-content:center;gap:3px;}
+  .ba-tag{position:absolute;top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;font-weight:600;padding:6px 11px;text-transform:uppercase;pointer-events:none;}
+  .ba-tag.before{left:14px;background:#fff;border:1.5px dashed var(--blue);color:var(--blue);}
+  .ba-tag.after{right:14px;background:var(--green);color:#fff;border:1.5px solid var(--green);}
+  .ba-control{display:flex;align-items:center;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:var(--blue-dark);text-transform:uppercase;}
+  .ba-control input[type=range]{flex:1;accent-color:var(--green);height:28px;cursor:pointer;}
+
+  /* ---------- product spec cards ---------- */
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .spec-card{border:1.5px dashed var(--blue-line-strong);background:#fff;position:relative;display:flex;flex-direction:column;animation:popin .7s cubic-bezier(.2,.9,.3,1.4) both;}
+  .spec-card:nth-child(2){animation-delay:.08s;}
+  .spec-card:nth-child(3){animation-delay:.16s;}
+  .spec-card:nth-child(4){animation-delay:.24s;}
+  .spec-card:nth-child(5){animation-delay:.32s;}
+  .spec-card:nth-child(6){animation-delay:.4s;}
+  .spec-card:nth-child(7){animation-delay:.48s;}
+  .spec-card:nth-child(8){animation-delay:.56s;}
+  @keyframes popin{from{transform:translateY(18px) scale(.93);}to{transform:translateY(0) scale(1);}}
+  .spec-card:hover{border-color:var(--blue);}
+  .spec-card::before,.spec-card::after{content:"+";position:absolute;font-family:'IBM Plex Mono',monospace;color:var(--blue);font-size:14px;line-height:1;z-index:2;}
+  .spec-card::before{top:3px;left:6px;}
+  .spec-card::after{bottom:3px;right:6px;}
+  .spec-img{border-bottom:1.5px dashed var(--blue-line-strong);background:var(--paper-dim);aspect-ratio:4/3;overflow:hidden;}
+  .spec-img img{width:100%;height:100%;object-fit:cover;}
+  .spec-body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:7px;flex:1;}
+  .spec-ref{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--blue);text-transform:uppercase;}
+  .spec-ref .ok{color:var(--green);font-weight:600;}
+  .spec-body h3{font-size:16.5px;font-weight:700;line-height:1.3;}
+  .spec-line{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5a6a86;border-top:1px dashed var(--blue-line-strong);padding-top:7px;}
+  .spec-price{display:flex;align-items:baseline;gap:7px;margin-top:auto;padding-top:6px;}
+  .spec-price b{font-size:20px;color:var(--blue-dark);}
+  .spec-price span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#5a6a86;}
+  .spec-btn{margin-top:9px;justify-content:center;}
+
+  /* ---------- measure / quality strip ---------- */
+  .measure{background:var(--blue-dark);color:#fff;position:relative;overflow:hidden;}
+  .measure::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);background-size:28px 28px;}
+  .measure .wrap{position:relative;}
+  .measure h2{color:#fff;}
+  .measure h2 span{color:#93c5fd;}
+  .measure .sec-head p{color:#c7d6f5;}
+  .measure .eyebrow{background:transparent;color:#bfdbfe;border-color:rgba(255,255,255,.45);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .stat{border:1.5px dashed rgba(255,255,255,.45);padding:20px 16px;text-align:center;background:rgba(255,255,255,.04);}
+  .stat b{display:block;font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1;color:#fff;}
+  .stat b em{font-style:normal;color:#4ade80;}
+  .stat span{display:block;margin-top:9px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#bfdbfe;}
+  .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  .check{display:flex;gap:12px;align-items:flex-start;border:1.5px dashed rgba(255,255,255,.45);padding:16px;background:rgba(255,255,255,.04);}
+  .check svg{width:26px;height:26px;flex:none;}
+  .check h3{font-size:16px;margin-bottom:4px;}
+  .check p{font-size:13.5px;line-height:1.55;color:#c7d6f5;}
+
+  /* ---------- team strip ---------- */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .member{border:1.5px dashed var(--blue-line-strong);background:#fff;padding:20px;text-align:center;}
+  .avatar{width:74px;height:74px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;border:3px dashed var(--blue-soft);outline:1.5px dashed var(--blue-line-strong);outline-offset:3px;}
+  .member h3{font-size:17px;}
+  .member p{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;margin-top:5px;line-height:1.7;}
+  .member span{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5a6a86;margin-top:2px;}
+
+  /* ---------- footer ---------- */
+  footer{background:#0e1c33;color:#dbe6fb;padding:52px 0 0;margin-top:10px;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;padding-bottom:36px;}
+  footer h3{color:#fff;font-size:17px;margin-bottom:13px;}
+  footer p, footer a{font-size:14.5px;line-height:1.75;color:#b9c9e8;}
+  footer a:hover{color:#fff;}
+  .foot-links{list-style:none;}
+  .foot-links li{margin-bottom:7px;}
+  .foot-note{border-top:1.5px dashed rgba(255,255,255,.3);padding:16px 0 20px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8fa5cc;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+
+  /* ---------- title-block tab headers ---------- */
+  .eyebrow{clip-path:polygon(0 0, 100% 0, calc(100% - 13px) 100%, 0 100%);padding-right:24px;}
+  section .wrap{position:relative;}
+  .tab-strip{display:inline-block;background:var(--blue);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;padding:5px 22px 5px 12px;clip-path:polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);text-transform:uppercase;}
+
+  /* ---------- hatch + compass decorations ---------- */
+  .hatch{position:absolute;top:-4px;right:16px;pointer-events:none;z-index:0;}
+  .hatch-bl{top:auto;bottom:-4px;right:auto;left:16px;}
+  .compass{flex:none;}
+  .compass .rose{animation:spinbadge 42s linear infinite;transform-origin:50% 50%;}
+  .sec-head-flex{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;}
+  .sec-head-flex .sec-head{margin-bottom:0;}
+  .compare-head{margin-bottom:30px;}
+
+  /* ---------- card registration ticks + price tag ---------- */
+  .rt{position:absolute;width:15px;height:15px;z-index:3;pointer-events:none;}
+  .rt.tl{top:-2px;left:-2px;border-top:3px solid var(--blue);border-left:3px solid var(--blue);}
+  .rt.tr{top:-2px;right:-2px;border-top:3px solid var(--blue);border-right:3px solid var(--blue);}
+  .rt.bl{bottom:-2px;left:-2px;border-bottom:3px solid var(--blue);border-left:3px solid var(--blue);}
+  .rt.br{bottom:-2px;right:-2px;border-bottom:3px solid var(--blue);border-right:3px solid var(--blue);}
+  .price-row{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:8px;flex-wrap:wrap;}
+  .price-tag{position:relative;background:var(--green);color:#fff;font-weight:800;font-size:17px;padding:8px 14px 8px 24px;clip-path:polygon(15px 0, 100% 0, calc(100% - 9px) 100%, 15px 100%, 0 50%);display:inline-block;}
+  .price-tag::before{content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:#fff;}
+  .price-unit{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#5a6a86;}
+
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .cat-strip{grid-template-columns:repeat(2,1fr);}
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .checks{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    nav.main{display:none;}
+    .badge-rotor{top:-30px;right:2px;width:88px;height:88px;}
+  }
+  @media (max-width:420px){
+    .prod-grid{grid-template-columns:1fr;}
+    .hero-meta{flex-direction:column;}
+    .hero-meta div{border-right:none;border-bottom:1.5px dashed var(--blue-line-strong);}
+    .hero-meta div:last-child{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#top" aria-label="GreenKrest home">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="42" height="42" stroke="#1d4ed8" stroke-width="2.5" stroke-dasharray="5 4"/>
+        <path d="M10 32 L24 12 L38 32" stroke="#14532d" stroke-width="3.5" stroke-linecap="square"/>
+        <path d="M15 32 H33" stroke="#1d4ed8" stroke-width="3"/>
+        <circle cx="24" cy="26" r="2.6" fill="#16a34a"/>
+      </svg>
+      <span>
+        <span class="logo-name">Green<span>Krest</span></span>
+        <span class="logo-sub" style="display:block;">Precast &middot; Drawing No. GK-03</span>
+      </span>
+    </a>
+    <nav class="main">
+      <a href="#categories">Categories</a>
+      <a href="#compare">Before / After</a>
+      <a href="#products">Products</a>
+      <a href="#quality">Quality</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-green" href="tel:+923709595953">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+      0370 9595953
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Sheet 01 &middot; Construction Materials, Drawn to Scale</span>
+        <h1>Precast, measured <span class="hl-blue">twice</span>.<br>Built <span class="hl-green">once</span>, built right.</h1>
+        <p class="lead">GreenKrest supplies precast slabs, girders, tuff tiles, benches and flower pots across Rawalpindi and Gujar Khan. Every piece is cast to a drawing, checked against a spec, and priced in the open. No guesswork on site, no surprises on the bill.</p>
+        <div class="hero-cta">
+          <a class="btn btn-blue" href="#products">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+            View Spec Sheets
+          </a>
+          <a class="btn" href="#compare">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+            See Before / After
+          </a>
+        </div>
+        <div class="hero-meta">
+          <div><b>99+</b><span>Products in store</span></div>
+          <div><b>8</b><span>Categories</span></div>
+          <div><b>24+ yrs</b><span>Team experience</span></div>
+        </div>
+      </div>
+
+      <div class="drawing-card">
+        <div class="badge-rotor" aria-hidden="true">
+          <svg class="spin" viewBox="0 0 100 100" width="104" height="104">
+            <defs><path id="circPath" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+            <circle cx="50" cy="50" r="49" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="2.5" fill="#1d4ed8" font-weight="600">
+              <textPath href="#circPath">MEASURED &#183; CHECKED &#183; CAST &#183; </textPath>
+            </text>
+          </svg>
+          <div class="badge-core">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#14532d" stroke-width="2"><path d="M21.3 8.7 15.3 2.7a1 1 0 0 0-1.4 0L2.7 13.9a1 1 0 0 0 0 1.4l6 6a1 1 0 0 0 1.4 0L21.3 10a1 1 0 0 0 0-1.3z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/></svg>
+          </div>
+        </div>
+        <div class="drawing-head">
+          <b>Fig. 01 &middot; Precast Girder + Slab, Cross Section</b>
+          <span>SCALE 1:20</span>
+        </div>
+        <svg viewBox="0 0 460 300" width="100%" role="img" aria-label="Technical line drawing of a precast girder and slab cross section">
+          <!-- slab -->
+          <path class="draw" pathLength="1" style="animation-delay:.1s" d="M60 78 H400 V108 H60 Z" fill="rgba(29,78,216,.06)" stroke="#1d4ed8" stroke-width="2.5"/>
+          <!-- slab segment joints -->
+          <path class="draw" pathLength="1" style="animation-delay:.9s" d="M145 78 V108 M230 78 V108 M315 78 V108" fill="none" stroke="#1d4ed8" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <!-- girder I section -->
+          <path class="draw" pathLength="1" style="animation-delay:.4s" d="M178 108 H282 V126 H247 V196 H282 V214 H178 V196 H213 V126 H178 Z" fill="rgba(20,83,45,.07)" stroke="#14532d" stroke-width="2.5"/>
+          <!-- rebar dots in slab -->
+          <circle class="draw" pathLength="1" style="animation-delay:1.2s" cx="88" cy="93" r="4" fill="none" stroke="#16a34a" stroke-width="2"/>
+          <circle class="draw" pathLength="1" style="animation-delay:1.3s" cx="188" cy="93" r="4" fill="none" stroke="#16a34a" stroke-width="2"/>
+          <circle class="draw" pathLength="1" style="animation-delay:1.4s" cx="288" cy="93" r="4" fill="none" stroke="#16a34a" stroke-width="2"/>
+          <circle class="draw" pathLength="1" style="animation-delay:1.5s" cx="372" cy="93" r="4" fill="none" stroke="#16a34a" stroke-width="2"/>
+          <!-- rebar in girder stem -->
+          <circle class="draw" pathLength="1" style="animation-delay:1.6s" cx="230" cy="150" r="4" fill="none" stroke="#16a34a" stroke-width="2"/>
+          <circle class="draw" pathLength="1" style="animation-delay:1.7s" cx="230" cy="182" r="4" fill="none" stroke="#16a34a" stroke-width="2"/>
+          <!-- hatch on ground -->
+          <path class="draw" pathLength="1" style="animation-delay:1.8s" d="M40 246 H420" stroke="#1d4ed8" stroke-width="2" fill="none"/>
+          <path class="draw" pathLength="1" style="animation-delay:1.9s" d="M60 246 l-12 12 M100 246 l-12 12 M140 246 l-12 12 M180 246 l-12 12 M220 246 l-12 12 M260 246 l-12 12 M300 246 l-12 12 M340 246 l-12 12 M380 246 l-12 12" stroke="#1d4ed8" stroke-width="1.3" fill="none"/>
+          <!-- width dimension (slab) -->
+          <g stroke="#1d4ed8" stroke-width="1.3">
+            <path d="M60 52 V66 M400 52 V66 M60 59 H400" stroke-dasharray="5 4" fill="none"/>
+            <path d="M60 59 l10 -3.5 v7 Z" fill="#1d4ed8" stroke="none"/>
+            <path d="M400 59 l-10 -3.5 v7 Z" fill="#1d4ed8" stroke="none"/>
+          </g>
+          <text x="230" y="46" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1d4ed8" font-weight="600">SLAB SPAN 12&prime; 6&Prime;</text>
+          <!-- height dimension (girder) -->
+          <g stroke="#14532d" stroke-width="1.3">
+            <path d="M428 108 H442 M428 214 H442 M435 108 V214" stroke-dasharray="5 4" fill="none"/>
+            <path d="M435 108 l-3.5 10 h7 Z" fill="#14532d" stroke="none"/>
+            <path d="M435 214 l-3.5 -10 h7 Z" fill="#14532d" stroke="none"/>
+          </g>
+          <text x="452" y="165" text-anchor="middle" transform="rotate(90 452 165)" font-family="IBM Plex Mono, monospace" font-size="11" fill="#14532d" font-weight="600">DEPTH 4&Prime;</text>
+          <!-- callouts -->
+          <path d="M110 93 L64 138 H30" fill="none" stroke="#5a6a86" stroke-width="1.1"/>
+          <text x="28" y="152" font-family="IBM Plex Mono, monospace" font-size="10" fill="#3c4a63">REBAR &#8960;10 @ 6&Prime; c/c</text>
+          <path d="M247 165 L330 165 H368" fill="none" stroke="#5a6a86" stroke-width="1.1"/>
+          <text x="330" y="156" font-family="IBM Plex Mono, monospace" font-size="10" fill="#3c4a63">WEB, CAST IN ONE POUR</text>
+          <text x="40" y="282" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#1d4ed8" letter-spacing="2">TOLERANCE &#177; 3 MM &#183; CONCRETE GRADE M20</text>
+        </svg>
+        <div class="drawing-foot">
+          <span>DWG NO. GK-PG-0126</span>
+          <span>CHECKED: E.H.K</span>
+          <span>REV. C</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap"><div class="dim"><span class="tick"></span>Section A-A &middot; Categories as specified<span class="tick"></span></div></div>
+
+  <!-- ================= CATEGORIES ================= -->
+  <section id="categories" style="padding-top:34px;">
+    <div class="wrap">
+      <svg class="hatch" width="118" height="118" viewBox="0 0 118 118" aria-hidden="true"><defs><pattern id="hatchA" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1d4ed8" stroke-width="2.5"/></pattern></defs><rect width="118" height="118" fill="url(#hatchA)" opacity=".3"/></svg>
+      <div class="sec-head">
+        <span class="eyebrow">Sheet 02 &middot; Bill of Categories</span>
+        <h2>Every category, <span>listed like a spec</span></h2>
+        <p>Eight product lines, each with a reference number and a live count from the store. Pick a line, check the spec sheets below, order on WhatsApp.</p>
+      </div>
+      <div class="cat-strip">
+        <a class="cat" href="#products"><span class="ref">REF GK-C01</span><span class="count">36 pcs</span><h3>Girders</h3><p>Precast + MS, all spans</p><div class="bar"></div></a>
+        <a class="cat" href="#products"><span class="ref">REF GK-C02</span><span class="count">26 pcs</span><h3>Flower Pots</h3><p>Planters, all sizes</p><div class="bar"></div></a>
+        <a class="cat" href="#products"><span class="ref">REF GK-C03</span><span class="count">19 pcs</span><h3>Precast Slabs</h3><p>Roof + floor panels</p><div class="bar"></div></a>
+        <a class="cat" href="#products"><span class="ref">REF GK-C04</span><span class="count">Stock</span><h3>Gutka Tiles</h3><p>Floors + courtyards</p><div class="bar"></div></a>
+        <a class="cat" href="#products"><span class="ref">REF GK-C05</span><span class="count">Stock</span><h3>Tuff Tiles</h3><p>Driveways + footpaths</p><div class="bar"></div></a>
+        <a class="cat" href="#products"><span class="ref">REF GK-C06</span><span class="count">Stock</span><h3>Benches</h3><p>Concrete, ready to set</p><div class="bar"></div></a>
+        <a class="cat" href="#products"><span class="ref">REF GK-C07</span><span class="count">Stock</span><h3>Exhaust Fans</h3><p>Ventilation range</p><div class="bar"></div></a>
+        <a class="cat" href="#products"><span class="ref">REF GK-C08</span><span class="count">Stock</span><h3>Bricks &amp; Blocks</h3><p>Hollow + solid units</p><div class="bar"></div></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="dim"><span class="tick"></span>Section B-B &middot; Same plot, before and after<span class="tick"></span></div></div>
+
+  <!-- ================= BEFORE / AFTER ================= -->
+  <section id="compare">
+    <div class="wrap">
+      <svg class="hatch" width="118" height="118" viewBox="0 0 118 118" aria-hidden="true"><defs><pattern id="hatchB" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1d4ed8" stroke-width="2.5"/></pattern></defs><rect width="118" height="118" fill="url(#hatchB)" opacity=".3"/></svg>
+      <div class="sec-head-flex compare-head">
+        <div class="sec-head">
+          <span class="eyebrow">Sheet 03 &middot; Site Comparison</span>
+          <h2>Drag the line: <span>bare plot to finished</span></h2>
+          <p>One 30 by 60 plot, drawn twice. On the right, the same plot roofed with GreenKrest precast slabs and girders, a concrete bench set down and flower pots placed. Drag the handle to compare.</p>
+        </div>
+        <svg class="compass" width="92" height="92" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="47" fill="#fff" stroke="#1d4ed8" stroke-width="1.6" stroke-dasharray="4 3"/>
+          <g class="rose">
+            <path d="M50 8 L56 44 L50 50 L44 44 Z" fill="#1d4ed8"/>
+            <path d="M50 92 L44 56 L50 50 L56 56 Z" fill="#93c5fd"/>
+            <path d="M8 50 L44 44 L50 50 L44 56 Z" fill="#93c5fd"/>
+            <path d="M92 50 L56 56 L50 50 L56 44 Z" fill="#1d4ed8"/>
+            <path d="M20 20 L46 46 L50 50 L44 44 Z" fill="#14532d" transform="rotate(45 50 50)"/>
+          </g>
+          <circle cx="50" cy="50" r="5" fill="#14532d"/>
+          <text x="50" y="22" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="600" fill="#14532d">N</text>
+        </svg>
+      </div>
+
+      <div class="ba-shell">
+        <div class="ba-frame" id="baFrame">
+          <!-- AFTER scene (base layer) -->
+          <svg class="ba-scene" viewBox="0 0 800 450" role="img" aria-label="Finished plot with precast slab roof, bench and flower pots">
+            <rect width="800" height="450" fill="#f6f9ff"/>
+            <circle cx="690" cy="66" r="30" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+            <circle cx="690" cy="66" r="19" fill="#fef9c3" stroke="#1d4ed8" stroke-width="1.6"/>
+            <path d="M120 380 H680" stroke="#1d4ed8" stroke-width="2.5"/>
+            <path d="M140 380 l-11 12 M190 380 l-11 12 M600 380 l-11 12 M650 380 l-11 12" stroke="#1d4ed8" stroke-width="1.4"/>
+            <!-- tiled path -->
+            <path d="M330 448 L385 380 H470 L520 448 Z" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+            <path d="M352 420 H498 M368 400 H484 M392 448 L420 380 M458 448 L438 380" stroke="#1d4ed8" stroke-width="1.1" stroke-dasharray="4 3" fill="none"/>
+            <!-- structure: columns + girder + slab roof -->
+            <path d="M250 380 V210 H272 V380 M528 380 V210 H550 V380" fill="rgba(20,83,45,.08)" stroke="#14532d" stroke-width="2.5"/>
+            <path d="M205 168 H595 V196 H205 Z" fill="rgba(29,78,216,.1)" stroke="#1d4ed8" stroke-width="2.5"/>
+            <path d="M205 196 H595 V210 H205 Z" fill="rgba(20,83,45,.12)" stroke="#14532d" stroke-width="2.2"/>
+            <path d="M272 168 V196 M337 168 V196 M402 168 V196 M467 168 V196 M532 168 V196" stroke="#1d4ed8" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <text x="400" y="188" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#1d4ed8" font-weight="600">PRECAST SLAB ROOF</text>
+            <text x="400" y="152" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#14532d">GIRDER SPAN 19&prime; 8&Prime;</text>
+            <!-- bench -->
+            <g stroke="#14532d" stroke-width="2.4" fill="rgba(20,83,45,.08)">
+              <path d="M120 322 H240 V334 H120 Z"/>
+              <path d="M128 300 H232 V310 H128 Z" fill="none"/>
+              <path d="M132 334 V362 M228 334 V362"/>
+            </g>
+            <text x="180" y="290" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#14532d">CONCRETE BENCH</text>
+            <!-- flower pots -->
+            <g stroke="#1d4ed8" stroke-width="2.2" fill="rgba(29,78,216,.08)">
+              <path d="M596 348 H648 L642 384 H602 Z"/>
+              <path d="M664 356 H706 L701 384 H669 Z"/>
+            </g>
+            <g stroke="#16a34a" stroke-width="2.2" fill="none">
+              <path d="M622 348 C612 330 600 330 596 318 M622 348 C622 328 632 322 630 308 M622 348 C634 334 646 334 650 322"/>
+              <path d="M685 356 C678 342 668 342 665 332 M685 356 C686 340 694 336 692 324"/>
+            </g>
+            <circle cx="630" cy="304" r="5" fill="#f472b6" stroke="#14532d" stroke-width="1.2"/>
+            <circle cx="598" cy="314" r="4.4" fill="#fbbf24" stroke="#14532d" stroke-width="1.2"/>
+            <circle cx="692" cy="320" r="4.4" fill="#f472b6" stroke="#14532d" stroke-width="1.2"/>
+            <!-- boundary + label -->
+            <path d="M70 380 V120 H730 V380" fill="none" stroke="#1d4ed8" stroke-width="1.4" stroke-dasharray="8 6"/>
+            <text x="76" y="108" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1d4ed8" letter-spacing="2">PLOT BOUNDARY 30&prime; x 60&prime; &middot; FINISHED</text>
+          </svg>
+          <!-- BEFORE scene (clipped top layer) -->
+          <div class="ba-before">
+            <svg class="ba-scene" viewBox="0 0 800 450" role="img" aria-label="Bare empty plot outline">
+              <rect width="800" height="450" fill="#ffffff"/>
+              <circle cx="690" cy="66" r="30" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+              <path d="M110 130 q20 -16 42 0 q22 -14 40 2" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+              <path d="M120 380 H680" stroke="#94a3b8" stroke-width="2.5"/>
+              <path d="M140 380 l-11 12 M190 380 l-11 12 M240 380 l-11 12 M560 380 l-11 12 M610 380 l-11 12 M660 380 l-11 12" stroke="#94a3b8" stroke-width="1.4"/>
+              <path d="M70 380 V120 H730 V380" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="8 6"/>
+              <!-- empty sign -->
+              <path d="M392 380 V300" stroke="#94a3b8" stroke-width="3"/>
+              <rect x="330" y="252" width="140" height="48" fill="#fff" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+              <text x="400" y="281" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#64748b" font-weight="600">BARE PLOT</text>
+              <!-- scrub marks -->
+              <path d="M180 356 q6 -14 12 0 M196 356 q6 -14 12 0 M560 350 q6 -14 12 0 M576 350 q6 -14 12 0 M300 366 q6 -12 12 0" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+              <text x="76" y="108" font-family="IBM Plex Mono, monospace" font-size="11" fill="#64748b" letter-spacing="2">PLOT BOUNDARY 30&prime; x 60&prime; &middot; EMPTY</text>
+              <text x="400" y="428" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#94a3b8">NO STRUCTURE &middot; NO SHADE &middot; NO SEATING</text>
+            </svg>
+          </div>
+          <span class="ba-tag before">Before</span>
+          <span class="ba-tag after">After</span>
+          <div class="ba-handle">
+            <div class="ba-grip">
+              <svg width="11" height="16" viewBox="0 0 10 16"><path d="M8 1 L2 8 L8 15" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+              <svg width="11" height="16" viewBox="0 0 10 16"><path d="M2 1 L8 8 L2 15" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="ba-control">
+          <span>Bare plot</span>
+          <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Compare before and after">
+          <span>Finished</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="dim"><span class="tick"></span>Section C-C &middot; Product spec sheets<span class="tick"></span></div></div>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section id="products">
+    <div class="wrap">
+      <svg class="hatch hatch-bl" width="118" height="118" viewBox="0 0 118 118" aria-hidden="true"><defs><pattern id="hatchC" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1d4ed8" stroke-width="2.5"/></pattern></defs><rect width="118" height="118" fill="url(#hatchC)" opacity=".3"/></svg>
+      <div class="sec-head">
+        <span class="eyebrow">Sheet 04 &middot; Spec Sheets, Live Store Items</span>
+        <h2>Products, <span>filed like drawings</span></h2>
+        <p>Real items from the GreenKrest store with live prices. Each sheet carries its reference number, material note and a punched price tag. Order any item on WhatsApp in one tap.</p>
+      </div>
+      <span class="tab-strip">All dimensions nominal &middot; Verify on call</span>
+      <div class="prod-grid" style="margin-top:18px;">
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/api/uploads/dead8214ca957feba2b1fcb35e590445.png" alt="Flower Pot"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P01</span><span class="ok">In Stock</span></div>
+            <h3>Flower Pot</h3>
+            <p class="spec-line">MATL: PRECAST CONCRETE &#183; USE: GARDEN / GATE</p>
+            <div class="price-row"><span class="price-tag">PKR 1,500</span><span class="price-unit">per piece</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%20Flower%20Pot%20(PKR%201%2C500)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/api/uploads/9f9f9cc9c91bf350bfb0a88e0d36b27b.png" alt="4 foot Precast Slab"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P02</span><span class="ok">In Stock</span></div>
+            <h3>4&prime; Precast Slab</h3>
+            <p class="spec-line">MATL: RCC M20 &#183; SIZE: 4 FT PANEL</p>
+            <div class="price-row"><span class="price-tag">PKR 850</span><span class="price-unit">per piece</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%204%27%20Precast%20Slab%20(PKR%20850)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/api/uploads/6db3c7a83de3d38419ad83e81ccdfe67.png" alt="12 foot 6 inch Girder"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P03</span><span class="ok">In Stock</span></div>
+            <h3>12&prime;6&Prime; Girder</h3>
+            <p class="spec-line">MATL: PRECAST RCC &#183; SPAN: 12 FT 6 IN</p>
+            <div class="price-row"><span class="price-tag">PKR 5,796</span><span class="price-unit">per piece</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%2012%276%22%20Girder%20(PKR%205%2C796)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/api/uploads/a372d62f5cb86bc89ccbda90c82594f6.png" alt="Tuff Tile"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P04</span><span class="ok">In Stock</span></div>
+            <h3>Tuff Tile</h3>
+            <p class="spec-line">MATL: PRESSED CONCRETE &#183; USE: DRIVEWAY</p>
+            <div class="price-row"><span class="price-tag">PKR 75</span><span class="price-unit">per piece</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%20Tuff%20Tile%20(PKR%2075)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/api/uploads/a58f62a4c22ed0a386a4c7a086d06dbe.png" alt="Concrete Bench"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P05</span><span class="ok">In Stock</span></div>
+            <h3>Concrete Bench</h3>
+            <p class="spec-line">MATL: PRECAST CONCRETE &#183; READY TO SET</p>
+            <div class="price-row"><span class="price-tag">PKR 15,000</span><span class="price-unit">per piece</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%20Concrete%20Bench%20(PKR%2015%2C000)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/api/uploads/4ee3d90a724883ff0459850283a4ac76.png" alt="Exhaust Fan"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P06</span><span class="ok">In Stock</span></div>
+            <h3>Exhaust Fan</h3>
+            <p class="spec-line">TYPE: VENTILATION &#183; FIT: WALL / ROOF</p>
+            <div class="price-row"><span class="price-tag">PKR 280</span><span class="price-unit">per piece</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%20Exhaust%20Fan%20(PKR%20280)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/assets/precast-wall-panel.jpg" alt="Hollow Concrete Blocks"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P07</span><span class="ok">In Stock</span></div>
+            <h3>Hollow Concrete Blocks (100 Pcs)</h3>
+            <p class="spec-line">MATL: HOLLOW BLOCK &#183; PACK: 100 PIECES</p>
+            <div class="price-row"><span class="price-tag">PKR 7,800</span><span class="price-unit">per pack</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%20Hollow%20Concrete%20Blocks%20100%20Pcs%20(PKR%207%2C800)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="spec-card">
+          <i class="rt tl"></i><i class="rt tr"></i><i class="rt bl"></i><i class="rt br"></i>
+          <div class="spec-img"><img src="https://greenkrest.com/assets/precast-i-beam.jpg" alt="Structural MS Girder and I-Beam"></div>
+          <div class="spec-body">
+            <div class="spec-ref"><span>Spec GK-P08</span><span class="ok">In Stock</span></div>
+            <h3>Structural MS Girder &amp; I-Beam</h3>
+            <p class="spec-line">MATL: MILD STEEL &#183; USE: HEAVY SPANS</p>
+            <div class="price-row"><span class="price-tag">PKR 275,000</span><span class="price-unit">per piece</span></div>
+            <a class="btn btn-green spec-btn" href="https://wa.me/923709595953?text=I%20want%20to%20order%3A%20Structural%20MS%20Girder%20and%20I-Beam%20(PKR%20275%2C000)">Order on WhatsApp</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MEASURE / QUALITY ================= -->
+  <section id="quality" class="measure">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Sheet 05 &middot; Measurement &amp; Quality Record</span>
+        <h2>Checked on the bench, <span>proven on site</span></h2>
+        <p>Numbers from the yard book, not the brochure. Every batch is measured before it leaves, and any piece outside tolerance stays behind.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b><span class="count" data-target="99">99</span><em>+</em></b><span>Products in the live store</span></div>
+        <div class="stat"><b><span class="count" data-target="24">24</span><em>+</em></b><span>Years of team experience</span></div>
+        <div class="stat"><b><span class="count" data-target="8">8</span></b><span>Material categories</span></div>
+        <div class="stat"><b><span class="count" data-target="3">3</span><em>mm</em></b><span>Max size tolerance, plus or minus</span></div>
+      </div>
+      <div class="checks">
+        <div class="check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M21.3 8.7 15.3 2.7a1 1 0 0 0-1.4 0L2.7 13.9a1 1 0 0 0 0 1.4l6 6a1 1 0 0 0 1.4 0L21.3 10a1 1 0 0 0 0-1.3z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/></svg>
+          <div><h3>Measured before dispatch</h3><p>Span, depth and thickness are checked against the drawing for every single piece, not just samples.</p></div>
+        </div>
+        <div class="check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><h3>One pour, full strength</h3><p>Girders and slabs are cast in a single pour with proper curing time, so the section works as one piece.</p></div>
+        </div>
+        <div class="check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18h-5"/><path d="M15 8h4l3 5v4a1 1 0 0 1-1 1h-1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+          <div><h3>Delivery across the region</h3><p>Regular dispatch across Rawalpindi and Gujar Khan, loaded in delivery order so unloading on site stays simple.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TEAM ================= -->
+  <section id="team">
+    <div class="wrap">
+      <svg class="hatch" width="118" height="118" viewBox="0 0 118 118" aria-hidden="true"><defs><pattern id="hatchD" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1d4ed8" stroke-width="2.5"/></pattern></defs><rect width="118" height="118" fill="url(#hatchD)" opacity=".3"/></svg>
+      <div class="sec-head">
+        <span class="eyebrow">Sheet 06 &middot; Signed Off By</span>
+        <h2>The names on <span>the drawing</span></h2>
+        <p>Small team, long record. The people below check the measurements, the casting and the loading themselves.</p>
+      </div>
+      <div class="team-grid">
+        <div class="member">
+          <div class="avatar">MT</div>
+          <h3>Muhammad Tariq</h3>
+          <p>Founder &amp; Managing Director</p>
+          <span>24+ Years Experience</span>
+        </div>
+        <div class="member">
+          <div class="avatar">HK</div>
+          <h3>Engr. Hamza Khan</h3>
+          <p>Technical &amp; Quality</p>
+          <span>Design + site checks</span>
+        </div>
+        <div class="member">
+          <div class="avatar">BA</div>
+          <h3>Bilal Ahmed</h3>
+          <p>Operations &amp; Dispatch</p>
+          <span>Orders + delivery record</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>GreenKrest</h3>
+        <p>Precast slabs, girders, tiles, benches and building materials, drawn to spec and delivered across Rawalpindi and Gujar Khan, Punjab.</p>
+        <p style="margin-top:12px;">
+          <a class="btn btn-green" href="https://wa.me/923709595953">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.26-1.42.5-.7.5-1.3.35-1.42-.15-.12-.3-.2-.6-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.64-.24-.37a9.82 9.82 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88zm8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.87 11.87 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.41z"/></svg>
+            WhatsApp Us
+          </a>
+        </p>
+      </div>
+      <div>
+        <h3>Index of Sheets</h3>
+        <ul class="foot-links">
+          <li><a href="#categories">Sheet 02 - Categories</a></li>
+          <li><a href="#compare">Sheet 03 - Before / After</a></li>
+          <li><a href="#products">Sheet 04 - Product Specs</a></li>
+          <li><a href="#quality">Sheet 05 - Quality Record</a></li>
+          <li><a href="#team">Sheet 06 - The Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Phone / WhatsApp<br><a href="tel:+923709595953" style="color:#fff;font-weight:700;font-size:17px;">0370 9595953</a></p>
+        <p style="margin-top:10px;">Rawalpindi / Gujar Khan<br>Punjab, Pakistan</p>
+        <p style="margin-top:10px;">Call for a quote, a site visit or a delivery slot.</p>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>DWG SET GK-03 &middot; BLUEPRINT EDITION &middot; <span id="yr">2026</span></span>
+      <span>Design sample for GreenKrest - demo prices and products from the live store.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---- counters animate on load ---- */
+  var counters = document.querySelectorAll('.count');
+  counters.forEach(function(el){
+    var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    var start = null, dur = 1400;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if(p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  });
+
+  /* ---- before / after slider ---- */
+  var frame = document.getElementById('baFrame');
+  var range = document.getElementById('baRange');
+  function setSplit(pct){
+    pct = Math.max(0, Math.min(100, pct));
+    frame.style.setProperty('--split', pct + '%');
+    range.value = pct;
+  }
+  range.addEventListener('input', function(){ setSplit(parseFloat(range.value)); });
+  var dragging = false;
+  function fromEvent(e){
+    var r = frame.getBoundingClientRect();
+    var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    setSplit(x / r.width * 100);
+  }
+  frame.addEventListener('pointerdown', function(e){ dragging = true; frame.setPointerCapture(e.pointerId); fromEvent(e); });
+  frame.addEventListener('pointermove', function(e){ if(dragging) fromEvent(e); });
+  frame.addEventListener('pointerup', function(){ dragging = false; });
+  frame.addEventListener('pointercancel', function(){ dragging = false; });
+
+  /* ---- footer year ---- */
+  var yr = document.getElementById('yr');
+  if(yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

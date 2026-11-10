@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenKrest - Yard Playful | Precast, Tiles and Building Materials in Rawalpindi</title>
+<meta name="description" content="GreenKrest supplies precast slabs, girders, tuff tiles, gutka tiles, flower pots and more in Rawalpindi and Gujar Khan. Call or WhatsApp 0370 9595953.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6ef;
+    --cream:#fffdf7;
+    --ink:#2e2a22;
+    --muted:#6f6455;
+    --green:#1c7c43;
+    --green-dark:#0d5c2e;
+    --green-deep:#083d1e;
+    --green-soft:#e2f1e3;
+    --orange:#f5821f;
+    --orange-dark:#d96c0d;
+    --orange-soft:#fdeeda;
+    --stone:#efe4d2;
+    --line:#e7dcc8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Nunito',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+  h1,h2,h3,.head-font{font-family:'Baloo 2',cursive;line-height:1.15;color:var(--green-deep);}
+  .sec{padding:84px 0;}
+  .sec-head{max-width:680px;margin:0 auto 44px;text-align:center;}
+  .sec-head h2{font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:800;}
+  .sec-head p{color:var(--muted);margin-top:10px;font-size:1.05rem;}
+  .kicker{
+    display:inline-block;background:var(--orange-soft);color:var(--orange-dark);
+    font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:6px 16px;border-radius:999px;border:2px solid #f8cf9f;margin-bottom:14px;
+  }
+  .squiggle{display:block;margin:10px auto 0;width:170px;height:14px;}
+  .squiggle path{stroke:var(--orange);stroke-width:5;fill:none;stroke-linecap:round;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-family:'Baloo 2',cursive;font-weight:700;
+    font-size:1.05rem;padding:14px 28px;border-radius:999px;border:none;cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn svg{width:20px;height:20px;flex:none;}
+  .btn-green{background:var(--green);color:#fff;box-shadow:0 6px 0 var(--green-dark);}
+  .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--green-dark);}
+  .btn-orange{background:var(--orange);color:#fff;box-shadow:0 6px 0 var(--orange-dark);}
+  .btn-orange:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--orange-dark);}
+  .btn-ghost{background:#fff;color:var(--green-dark);border:3px solid var(--green);box-shadow:0 6px 0 var(--green-soft);}
+  .btn-ghost:hover{transform:translateY(-2px);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;background:rgba(250,246,239,.96);
+    border-bottom:3px solid var(--line);
+  }
+  .header-in{display:flex;align-items:center;gap:18px;padding:12px 0;flex-wrap:wrap;}
+  .logo{display:flex;align-items:center;gap:11px;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.55rem;color:var(--green-deep);}
+  .logo .mark{
+    width:46px;height:46px;background:var(--green);display:grid;place-items:center;color:#fff;
+    border-radius:60% 40% 55% 45% / 50% 60% 40% 50%;box-shadow:4px 4px 0 var(--orange);
+  }
+  .logo .mark svg{width:26px;height:26px;}
+  .logo span em{font-style:normal;color:var(--orange);}
+  nav.main{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;}
+  nav.main a{
+    font-weight:800;padding:9px 15px;border-radius:999px;color:var(--ink);font-size:.98rem;
+  }
+  nav.main a:hover{background:var(--green-soft);color:var(--green-dark);}
+  .header-call{
+    display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-weight:800;
+    padding:10px 18px;border-radius:999px;box-shadow:0 4px 0 var(--green-dark);
+  }
+  .header-call svg{width:17px;height:17px;}
+  .header-call:hover{transform:translateY(-1px);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:56px 0 0;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}
+  .hero h1{font-size:clamp(2.3rem,6vw,3.7rem);font-weight:800;}
+  .hero h1 .hl{color:var(--green);position:relative;white-space:nowrap;}
+  .hero h1 .hl2{color:var(--orange);}
+  .hero p.lead{margin:20px 0 28px;font-size:1.14rem;color:var(--muted);max-width:520px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .hero-points{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;}
+  .hero-points li{
+    list-style:none;display:flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--line);
+    border-radius:999px;padding:7px 15px;font-weight:700;font-size:.92rem;
+  }
+  .hero-points svg{width:16px;height:16px;color:var(--green);flex:none;}
+  .scene-card{
+    background:linear-gradient(180deg,#dff0fb 0%,#eef7ee 62%,#fdf3df 100%);
+    border:3px solid #fff;
+    border-radius:44px 64px 40px 70px / 40px 52px 44px 56px;
+    box-shadow:10px 12px 0 var(--stone);
+    overflow:hidden;position:relative;
+  }
+  .scene-card svg{display:block;width:100%;height:auto;}
+  .scene-tag{
+    position:absolute;left:18px;bottom:14px;background:#fff;border-radius:999px;padding:6px 15px;
+    font-weight:800;font-size:.85rem;color:var(--green-dark);box-shadow:0 4px 0 var(--stone);
+    display:flex;align-items:center;gap:8px;
+  }
+  .scene-tag .dot{width:10px;height:10px;border-radius:50%;background:var(--orange);animation:blinkdot 1.6s ease-in-out infinite;}
+  @keyframes blinkdot{0%,100%{transform:scale(1);}50%{transform:scale(1.45);}}
+
+  /* Crane animation */
+  .jib{transform-box:view-box;transform-origin:118px 66px;animation:swing 9s ease-in-out infinite alternate;}
+  @keyframes swing{from{transform:rotate(-2.4deg);}to{transform:rotate(2.4deg);}}
+  .cable{transform-box:fill-box;transform-origin:50% 0%;animation:liftcable 5s ease-in-out infinite alternate;}
+  @keyframes liftcable{from{transform:scaleY(1);}to{transform:scaleY(1.33);}}
+  .load{animation:liftload 5s ease-in-out infinite alternate;}
+  @keyframes liftload{from{transform:translateY(0);}to{transform:translateY(40px);}}
+  .hookpath{stroke-dasharray:7 8;animation:dashmarch 2.6s linear infinite;}
+  @keyframes dashmarch{to{stroke-dashoffset:-60;}}
+  .sunspin{transform-box:fill-box;transform-origin:center;animation:sunspin 26s linear infinite;}
+  @keyframes sunspin{to{transform:rotate(360deg);}}
+  .cloud{animation:drift 11s ease-in-out infinite alternate;}
+  .cloud2{animation:drift 14s ease-in-out infinite alternate-reverse;}
+  @keyframes drift{from{transform:translateX(-8px);}to{transform:translateX(16px);}}
+
+  /* ---------- Diagonal band (stats) ---------- */
+  .band{
+    background:var(--green);color:#fff;margin-top:80px;
+    clip-path:polygon(0 26px,100% 0,100% calc(100% - 26px),0 100%);
+    padding:74px 0 70px;
+  }
+  .band .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center;}
+  .band .num{font-family:'Baloo 2',cursive;font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#ffd9ad;}
+  .band .lbl{font-weight:700;opacity:.92;}
+  .band h2{color:#fff;text-align:center;font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:34px;}
+
+  /* ---------- Categories ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .cat{
+    background:var(--cream);border:3px solid var(--line);text-align:center;padding:28px 14px 24px;
+    border-radius:38px 52px 36px 54px / 46px 38px 52px 40px;
+    box-shadow:6px 7px 0 var(--stone);
+    animation:bob 3.6s ease-in-out infinite;
+  }
+  .cat:nth-child(1){animation-duration:3.3s;animation-delay:-.4s;}
+  .cat:nth-child(2){animation-duration:3.9s;animation-delay:-1.2s;}
+  .cat:nth-child(3){animation-duration:3.5s;animation-delay:-2s;}
+  .cat:nth-child(4){animation-duration:4.2s;animation-delay:-.8s;}
+  .cat:nth-child(5){animation-duration:3.7s;animation-delay:-1.6s;}
+  .cat:nth-child(6){animation-duration:4.4s;animation-delay:-.2s;}
+  .cat:nth-child(7){animation-duration:3.4s;animation-delay:-2.5s;}
+  .cat:nth-child(8){animation-duration:4s;animation-delay:-1s;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-.5deg);}50%{transform:translateY(-10px) rotate(.7deg);}}
+  .cat .ic{
+    width:64px;height:64px;margin:0 auto 12px;display:grid;place-items:center;color:var(--green-dark);
+    background:var(--green-soft);border-radius:58% 42% 55% 45% / 50% 58% 42% 50%;
+  }
+  .cat:nth-child(even) .ic{background:var(--orange-soft);color:var(--orange-dark);}
+  .cat .ic svg{width:32px;height:32px;}
+  .cat h3{font-size:1.12rem;}
+  .cat p{color:var(--muted);font-size:.9rem;font-weight:700;}
+
+  /* ---------- Calculator (scalloped cutouts) ---------- */
+  .calc-sec{
+    background:var(--orange-soft);position:relative;
+    clip-path:polygon(
+      0% 2.4%, 6.25% .7%, 12.5% 2.4%, 18.75% .7%, 25% 2.4%, 31.25% .7%, 37.5% 2.4%, 43.75% .7%,
+      50% 2.4%, 56.25% .7%, 62.5% 2.4%, 68.75% .7%, 75% 2.4%, 81.25% .7%, 87.5% 2.4%, 93.75% .7%, 100% 2.4%,
+      100% 97.6%, 93.75% 99.3%, 87.5% 97.6%, 81.25% 99.3%, 75% 97.6%, 68.75% 99.3%, 62.5% 97.6%, 56.25% 99.3%,
+      50% 97.6%, 43.75% 99.3%, 37.5% 97.6%, 31.25% 99.3%, 25% 97.6%, 18.75% 99.3%, 12.5% 97.6%, 6.25% 99.3%, 0% 97.6%);
+    padding:110px 0 104px;
+  }
+  .calc-card{
+    background:var(--cream);max-width:880px;margin:0 auto;position:relative;
+    border:3px solid #fff;border-radius:40px 58px 38px 60px / 48px 40px 56px 42px;
+    box-shadow:10px 12px 0 #f3cf9e;padding:42px 40px;
+  }
+  .calc-float{position:absolute;pointer-events:none;}
+  .float-star{top:-24px;right:36px;width:52px;height:52px;color:var(--orange);animation:floaty 3.8s ease-in-out infinite;}
+  .float-sun{bottom:-20px;left:30px;width:60px;height:60px;color:#f5a623;animation:floaty 4.6s ease-in-out infinite reverse;}
+  .float-star2{top:36%;left:-24px;width:36px;height:36px;color:var(--green);animation:floaty 4.2s ease-in-out infinite;}
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(-6deg);}50%{transform:translateY(-13px) rotate(8deg);}}
+  .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:26px;}
+  .calc-sec .sec-head{margin-bottom:6px;}
+  label.flabel{display:block;font-family:'Baloo 2',cursive;font-weight:700;font-size:1.05rem;color:var(--green-deep);margin-bottom:9px;}
+  .area-in{
+    width:100%;font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:700;color:var(--ink);
+    padding:14px 18px;border:3px solid var(--line);border-radius:20px;background:#fff;outline:none;
+  }
+  .area-in:focus{border-color:var(--green);}
+  .mat-opts{display:grid;gap:12px;}
+  .mat-opt{
+    display:flex;gap:13px;align-items:flex-start;background:#fff;border:3px solid var(--line);
+    border-radius:22px;padding:14px 16px;cursor:pointer;transition:border-color .15s ease, background .15s ease;
+  }
+  .mat-opt input{margin-top:5px;width:19px;height:19px;accent-color:var(--green);flex:none;}
+  .mat-opt.sel{border-color:var(--green);background:var(--green-soft);}
+  .mat-opt .mn{font-family:'Baloo 2',cursive;font-weight:700;font-size:1.08rem;color:var(--green-deep);}
+  .mat-opt .md{font-size:.9rem;color:var(--muted);font-weight:600;}
+  .mat-opt .mp{margin-left:auto;font-family:'Baloo 2',cursive;font-weight:800;color:var(--orange-dark);white-space:nowrap;}
+  .calc-result{
+    margin-top:30px;background:var(--green);color:#fff;border-radius:26px;padding:24px 26px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;
+  }
+  .calc-result .rl{font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.85;}
+  .calc-result .rv{font-family:'Baloo 2',cursive;font-size:1.65rem;font-weight:800;color:#ffe1b8;}
+  .calc-note{margin-top:14px;font-size:.92rem;color:var(--muted);font-weight:600;text-align:center;}
+  .calc-wa{margin-top:20px;text-align:center;}
+  .bounce-cta{animation:gentlebounce 1.8s ease-in-out infinite;}
+  @keyframes gentlebounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+  /* ---------- Products (blob cards) ---------- */
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+  .prod{
+    background:var(--cream);padding:16px 16px 22px;position:relative;
+    box-shadow:9px 10px 0 var(--stone);
+    transition:transform .22s ease, box-shadow .22s ease;
+  }
+  .prod:nth-child(4n+1){border-radius:56px 34px 60px 30px / 40px 58px 34px 56px;}
+  .prod:nth-child(4n+2){border-radius:34px 60px 30px 58px / 56px 36px 60px 38px;}
+  .prod:nth-child(4n+3){border-radius:60px 30px 56px 36px / 36px 56px 40px 58px;}
+  .prod:nth-child(4n+4){border-radius:32px 56px 62px 34px / 58px 40px 36px 54px;}
+  .prod .pimg{overflow:hidden;background:var(--green-soft);}
+  .prod:nth-child(odd) .pimg{border-radius:48px 26px 50px 24px / 32px 46px 28px 44px;}
+  .prod:nth-child(even) .pimg{border-radius:26px 50px 24px 48px / 44px 30px 46px 30px;}
+  .prod .pimg img{width:100%;height:170px;object-fit:cover;}
+  .prod .tag{
+    position:absolute;top:24px;left:24px;background:var(--orange);color:#fff;font-weight:800;font-size:.75rem;
+    padding:5px 12px;border-radius:999px;letter-spacing:.04em;
+  }
+  .prod h3{font-size:1.14rem;margin:16px 4px 4px;}
+  .prod .pcat{color:var(--muted);font-weight:700;font-size:.88rem;margin:0 4px;}
+  .prod .prow{display:flex;align-items:center;justify-content:space-between;margin:14px 4px 0;gap:8px;flex-wrap:wrap;}
+  .prod .price{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.3rem;color:var(--green-dark);}
+  .prod .price small{font-size:.8rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;}
+  .order-btn{
+    display:inline-flex;align-items:center;gap:7px;background:var(--green);color:#fff;font-weight:800;font-size:.92rem;
+    padding:10px 16px;border-radius:999px;box-shadow:0 4px 0 var(--green-dark);
+  }
+  .order-btn svg{width:16px;height:16px;}
+  .order-btn:hover{transform:translateY(-2px);}
+  @media (hover:hover) and (pointer:fine){
+    .prod:hover{transform:rotate(-1.4deg) translateY(-6px);box-shadow:13px 16px 0 var(--stone);}
+    .prod:nth-child(even):hover{transform:rotate(1.4deg) translateY(-6px);}
+  }
+
+  /* ---------- Why + steps ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:70px;}
+  .why{
+    background:#fff;border:3px solid var(--line);padding:28px 24px;
+    border-radius:36px 50px 34px 52px / 46px 36px 50px 38px;box-shadow:6px 7px 0 var(--stone);
+  }
+  .why .ic{width:54px;height:54px;display:grid;place-items:center;background:var(--orange-soft);color:var(--orange-dark);border-radius:55% 45% 52% 48% / 48% 56% 44% 52%;margin-bottom:14px;}
+  .why .ic svg{width:27px;height:27px;}
+  .why h3{font-size:1.18rem;margin-bottom:6px;}
+  .why p{color:var(--muted);font-size:.97rem;}
+  .steps-band{
+    background:var(--green-deep);color:#fff;
+    clip-path:polygon(0 0,100% 26px,100% 100%,0 calc(100% - 26px));
+    padding:76px 0 84px;border-radius:6px;
+  }
+  .steps-band h2{color:#fff;text-align:center;font-size:clamp(1.7rem,4vw,2.4rem);}
+  .steps-band .sec-head p{color:#cfe6d2;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .step{
+    background:rgba(255,255,255,.07);border:2px dashed rgba(255,255,255,.35);text-align:center;
+    padding:32px 22px;border-radius:38px 52px 36px 54px / 46px 38px 52px 40px;
+  }
+  .step .n{
+    width:62px;height:62px;margin:0 auto 15px;display:grid;place-items:center;background:var(--orange);color:#fff;
+    font-family:'Baloo 2',cursive;font-weight:800;font-size:1.6rem;
+    border-radius:58% 42% 55% 45% / 50% 58% 42% 50%;box-shadow:4px 5px 0 rgba(0,0,0,.25);
+  }
+  .step h3{color:#fff;font-size:1.25rem;margin-bottom:7px;}
+  .step p{color:#d8ecd9;font-size:.97rem;}
+
+  /* ---------- Team ---------- */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:880px;margin:0 auto;}
+  .member{
+    background:var(--cream);border:3px solid var(--line);text-align:center;padding:30px 18px 26px;
+    border-radius:52px 36px 54px 34px / 40px 54px 36px 52px;box-shadow:7px 8px 0 var(--stone);
+  }
+  .avatar{
+    width:78px;height:78px;margin:0 auto 14px;display:grid;place-items:center;background:var(--green);color:#fff;
+    font-family:'Baloo 2',cursive;font-weight:800;font-size:1.5rem;
+    border-radius:58% 42% 55% 45% / 50% 58% 42% 50%;box-shadow:4px 5px 0 var(--orange);
+  }
+  .member:nth-child(2) .avatar{background:var(--orange);box-shadow:4px 5px 0 var(--green);}
+  .member h3{font-size:1.15rem;}
+  .member p{color:var(--muted);font-weight:700;font-size:.92rem;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--green-deep);color:#dcefe0;padding:70px 0 0;margin-top:0;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;padding-bottom:44px;}
+  footer h3{color:#fff;font-size:1.2rem;margin-bottom:14px;}
+  footer p, footer a{color:#c4dfc9;font-weight:600;}
+  footer a:hover{color:#fff;}
+  .foot-grid ul{list-style:none;}
+  .foot-grid li{margin-bottom:9px;}
+  .foot-logo{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.6rem;color:#fff;margin-bottom:12px;}
+  .foot-logo em{font-style:normal;color:var(--orange);}
+  .foot-bar{border-top:1px solid rgba(255,255,255,.18);padding:20px 0;text-align:center;font-size:.9rem;color:#a9cdb0;}
+  .foot-bar .sample{margin-top:6px;font-size:.84rem;color:#8fb697;}
+
+  /* Floating WhatsApp */
+  .wa-float{
+    position:fixed;right:18px;bottom:18px;z-index:80;width:60px;height:60px;border-radius:50%;
+    background:#25d366;display:grid;place-items:center;box-shadow:0 8px 20px rgba(13,92,46,.35);
+    animation:gentlebounce 1.8s ease-in-out infinite;
+  }
+  .wa-float svg{width:30px;height:30px;color:#fff;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+    .band .stats{grid-template-columns:repeat(2,1fr);}
+    .why-grid,.steps,.team-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto;}
+    .why-grid{margin-bottom:56px;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .sec{padding:60px 0;}
+    .calc-sec{padding:86px 0 80px;}
+    .calc-card{padding:32px 22px;}
+    .calc-grid{grid-template-columns:1fr;}
+    .calc-result{grid-template-columns:1fr;gap:10px;}
+    .prod-grid{grid-template-columns:1fr;}
+    .cat-grid{gap:14px;}
+    .cat{padding:22px 8px 18px;}
+    nav.main{display:none;}
+    .header-call{margin-left:auto;}
+    .hero{padding-top:36px;}
+    .btn{padding:13px 22px;font-size:1rem;}
+    .float-star2{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#top" aria-label="GreenKrest home">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+      </span>
+      <span>Green<em>Krest</em></span>
+    </a>
+    <nav class="main">
+      <a href="#categories">Categories</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#products">Products</a>
+      <a href="#how">How It Works</a>
+      <a href="#team">Our Team</a>
+    </nav>
+    <a class="header-call" href="tel:+923709595953">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      0370 9595953
+    </a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Precast Yard - Rawalpindi and Gujar Khan</span>
+      <h1>Strong material, <span class="hl">honest prices,</span> <span class="hl2">delivered to your site.</span></h1>
+      <p class="lead">GreenKrest makes and supplies precast slabs, girders, tuff tiles, gutka tiles, flower pots and benches. Order in minutes on call or WhatsApp and get it dropped at your plot, home or project site.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-green bounce-cta" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order%20building%20material." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Order on WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#calculator">Try the Calculator</a>
+      </div>
+      <ul class="hero-points">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> 99 products in the live store</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Own precast yard</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Fast local delivery</li>
+      </ul>
+    </div>
+    <div class="scene-card" aria-label="Animated crane lifting a precast slab at the GreenKrest yard">
+      <svg viewBox="0 0 520 360" role="img" aria-label="Crane lifting a precast slab">
+        <!-- sun -->
+        <g class="sunspin" stroke="#f5a623" stroke-width="4" stroke-linecap="round">
+          <circle cx="452" cy="52" r="17" fill="#ffc94d" stroke="none"/>
+          <line x1="452" y1="18" x2="452" y2="27"/><line x1="452" y1="77" x2="452" y2="86"/>
+          <line x1="418" y1="52" x2="427" y2="52"/><line x1="477" y1="52" x2="486" y2="52"/>
+          <line x1="428" y1="28" x2="434" y2="34"/><line x1="470" y1="70" x2="476" y2="76"/>
+          <line x1="476" y1="28" x2="470" y2="34"/><line x1="434" y1="70" x2="428" y2="76"/>
+        </g>
+        <!-- clouds -->
+        <g fill="#ffffff" opacity=".9">
+          <g class="cloud"><ellipse cx="90" cy="52" rx="34" ry="13"/><ellipse cx="112" cy="44" rx="24" ry="11"/></g>
+          <g class="cloud2"><ellipse cx="300" cy="34" rx="28" ry="11"/><ellipse cx="318" cy="27" rx="19" ry="9"/></g>
+        </g>
+        <!-- dashed path the hook follows -->
+        <path class="hookpath" d="M64 292 C 170 168, 330 168, 438 288" fill="none" stroke="#f5821f" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+        <!-- ground -->
+        <rect x="0" y="318" width="520" height="42" fill="#e8dcc3"/>
+        <line x1="0" y1="318" x2="520" y2="318" stroke="#d8c8a6" stroke-width="3"/>
+        <!-- slab stack left (pickup point) -->
+        <g>
+          <rect x="26" y="290" width="86" height="13" rx="3" fill="#b9c4bb" stroke="#8fa295" stroke-width="2"/>
+          <rect x="26" y="275" width="86" height="13" rx="3" fill="#c7d2c8" stroke="#8fa295" stroke-width="2"/>
+          <rect x="26" y="260" width="86" height="13" rx="3" fill="#b9c4bb" stroke="#8fa295" stroke-width="2"/>
+        </g>
+        <!-- placed slabs right -->
+        <g>
+          <rect x="402" y="290" width="92" height="13" rx="3" fill="#c7d2c8" stroke="#8fa295" stroke-width="2"/>
+          <rect x="402" y="275" width="92" height="13" rx="3" fill="#b9c4bb" stroke="#8fa295" stroke-width="2"/>
+        </g>
+        <!-- crane mast -->
+        <g stroke="#0d5c2e" stroke-width="5" stroke-linecap="round">
+          <line x1="106" y1="318" x2="106" y2="66"/>
+          <line x1="130" y1="318" x2="130" y2="66"/>
+          <line x1="106" y1="290" x2="130" y2="252"/><line x1="130" y1="290" x2="106" y2="252"/>
+          <line x1="106" y1="240" x2="130" y2="202"/><line x1="130" y1="240" x2="106" y2="202"/>
+          <line x1="106" y1="190" x2="130" y2="152"/><line x1="130" y1="190" x2="106" y2="152"/>
+          <line x1="106" y1="140" x2="130" y2="102"/><line x1="130" y1="140" x2="106" y2="102"/>
+        </g>
+        <rect x="94" y="312" width="48" height="8" rx="3" fill="#083d1e"/>
+        <!-- swinging jib group -->
+        <g class="jib">
+          <line x1="30" y1="58" x2="452" y2="58" stroke="#1c7c43" stroke-width="7" stroke-linecap="round"/>
+          <line x1="118" y1="66" x2="330" y2="58" stroke="#0d5c2e" stroke-width="2.5"/>
+          <line x1="118" y1="66" x2="60" y2="58" stroke="#0d5c2e" stroke-width="2.5"/>
+          <rect x="34" y="58" width="30" height="24" rx="4" fill="#f5821f"/>
+          <rect x="104" y="40" width="28" height="20" rx="4" fill="#ffd9ad" stroke="#0d5c2e" stroke-width="2.5"/>
+          <!-- trolley -->
+          <rect x="318" y="52" width="24" height="14" rx="3" fill="#083d1e"/>
+          <!-- lifting cable, hook and slab -->
+          <line class="cable" x1="330" y1="66" x2="330" y2="188" stroke="#2e2a22" stroke-width="3.5"/>
+          <g class="load">
+            <path d="M330 188 v10 a7 7 0 1 1 -7 -7" fill="none" stroke="#2e2a22" stroke-width="4" stroke-linecap="round"/>
+            <g>
+              <rect x="268" y="212" width="124" height="27" rx="5" fill="#d5ded3" stroke="#8fa295" stroke-width="2.5"/>
+              <circle cx="292" cy="225" r="5" fill="#faf6ef" stroke="#8fa295" stroke-width="2"/>
+              <circle cx="330" cy="225" r="5" fill="#faf6ef" stroke="#8fa295" stroke-width="2"/>
+              <circle cx="368" cy="225" r="5" fill="#faf6ef" stroke="#8fa295" stroke-width="2"/>
+              <line x1="316" y1="206" x2="283" y2="212" stroke="#2e2a22" stroke-width="2.5"/>
+              <line x1="344" y1="206" x2="377" y2="212" stroke="#2e2a22" stroke-width="2.5"/>
+            </g>
+          </g>
+        </g>
+        <!-- little truck -->
+        <g>
+          <rect x="196" y="288" width="86" height="24" rx="5" fill="#1c7c43"/>
+          <path d="M282 296 h26 l14 16 h-40 z" fill="#0d5c2e"/>
+          <rect x="288" y="299" width="15" height="10" rx="2" fill="#dff0fb"/>
+          <rect x="206" y="276" width="66" height="13" rx="3" fill="#c7d2c8" stroke="#8fa295" stroke-width="2"/>
+          <circle cx="222" cy="314" r="8" fill="#2e2a22"/><circle cx="222" cy="314" r="3.5" fill="#cbbfa5"/>
+          <circle cx="298" cy="314" r="8" fill="#2e2a22"/><circle cx="298" cy="314" r="3.5" fill="#cbbfa5"/>
+        </g>
+      </svg>
+      <div class="scene-tag"><span class="dot"></span> Live from our yard - slabs on the move</div>
+    </div>
+  </div>
+
+  <!-- stats band with diagonal cuts -->
+  <div class="band">
+    <div class="wrap">
+      <h2>The yard in numbers</h2>
+      <div class="stats">
+        <div><div class="num"><span class="count" data-to="99">99</span>+</div><div class="lbl">Products in the store</div></div>
+        <div><div class="num"><span class="count" data-to="8">8</span></div><div class="lbl">Material categories</div></div>
+        <div><div class="num"><span class="count" data-to="24">24</span>+</div><div class="lbl">Years of experience</div></div>
+        <div><div class="num"><span class="count" data-to="2">2</span></div><div class="lbl">Cities served daily</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="sec" id="categories" style="padding-bottom:70px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Shop by Category</span>
+      <h2>Everything your site needs
+        <svg class="squiggle" viewBox="0 0 170 14" aria-hidden="true"><path d="M3 8 Q 13 2 24 8 T 45 8 T 66 8 T 87 8 T 108 8 T 129 8 T 150 8 T 167 8"/></svg>
+      </h2>
+      <p>Pick a category and order on WhatsApp in one tap. Rates are yard rates, no middleman.</p>
+    </div>
+    <div class="cat-grid">
+      <a class="cat" href="#products">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="3.6" rx="1"/><rect x="3" y="10.2" width="18" height="3.6" rx="1"/><rect x="3" y="15.9" width="13" height="3.6" rx="1"/></svg></span>
+        <h3>Girders</h3><p>36 products</p>
+      </a>
+      <a class="cat" href="#products">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 9.5h13l-1.6 9.7a2 2 0 0 1-2 1.8h-5.8a2 2 0 0 1-2-1.8L5.5 9.5z"/><path d="M4 9.5h16"/><path d="M12 9.5V6.8"/><circle cx="12" cy="4.6" r="1.9"/><path d="M12 6.5C10.8 5.4 9.2 5.2 8 5.8c.7 1.2 2.2 1.7 4 .7zM12 6.5c1.2-1.1 2.8-1.3 4-.7-.7 1.2-2.2 1.7-4 .7z"/></svg></span>
+        <h3>Flower Pots</h3><p>26 products</p>
+      </a>
+      <a class="cat" href="#products">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="5" width="16" height="4" rx="1"/><rect x="6" y="10.5" width="16" height="4" rx="1"/><rect x="4" y="16" width="16" height="4" rx="1"/></svg></span>
+        <h3>Precast Slabs</h3><p>19 products</p>
+      </a>
+      <a class="cat" href="#calculator">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></span>
+        <h3>Gutka Tiles</h3><p>Classic wall look</p>
+      </a>
+      <a class="cat" href="#calculator">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M12 3.5v17M3.5 12h17"/><circle cx="7.8" cy="7.8" r="1" fill="currentColor"/><circle cx="16.2" cy="16.2" r="1" fill="currentColor"/></svg></span>
+        <h3>Tuff Tiles</h3><p>From PKR 75 each</p>
+      </a>
+      <a class="cat" href="#products">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 4v7M5 7.5h14M19 4v7"/><path d="M3.5 13.5h17"/><path d="M6 13.5V20M18 13.5V20M6 17h12"/></svg></span>
+        <h3>Benches</h3><p>Parks and gardens</p>
+      </a>
+      <a class="cat" href="#products">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 12c-1.8-2.2-1.6-5 .5-6.6 1.6 1.8 1.4 4.6-.5 6.6zM12 12c2.8-.4 5.2 1.2 5.6 3.9-2.4.6-4.8-.9-5.6-3.9zM12 12c-2.8.4-5.2-1.2-5.6-3.9 2.4-.6 4.8.9 5.6 3.9z"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></span>
+        <h3>Exhaust Fans</h3><p>Strong air flow</p>
+      </a>
+      <a class="cat" href="#products">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 12h18M9 5v7M15 5v7M12 12v7"/></svg></span>
+        <h3>Bricks and Blocks</h3><p>Hollow and solid</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CALCULATOR ================= -->
+<section class="calc-sec" id="calculator">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Free Estimate Tool</span>
+      <h2>How many tiles does your floor need?
+        <svg class="squiggle" viewBox="0 0 170 14" aria-hidden="true"><path d="M3 8 Q 13 2 24 8 T 45 8 T 66 8 T 87 8 T 108 8 T 129 8 T 150 8 T 167 8"/></svg>
+      </h2>
+      <p>Type your area, pick a tile, and get a quantity and cost estimate on the spot. Then send it to us on WhatsApp.</p>
+    </div>
+    <div class="calc-card">
+      <svg class="calc-float float-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8l3.1 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.6 3.8L7 14.4l-5.6-5 7.5-.7z"/></svg>
+      <svg class="calc-float float-star2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8l3.1 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.6 3.8L7 14.4l-5.6-5 7.5-.7z"/></svg>
+      <svg class="calc-float float-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.4" fill="currentColor" stroke="none"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+      <div class="calc-grid">
+        <div>
+          <label class="flabel" for="areaInput">Your area (sq ft)</label>
+          <input class="area-in" type="number" id="areaInput" value="500" min="1" step="1" inputmode="numeric">
+          <p class="calc-note" style="text-align:left;margin-top:10px;">Tip: length x width of the floor. A 10 x 50 driveway is 500 sq ft.</p>
+        </div>
+        <div>
+          <span class="flabel" id="matLabel">Pick your tile</span>
+          <div class="mat-opts" role="radiogroup" aria-labelledby="matLabel">
+            <label class="mat-opt sel" id="optTuff">
+              <input type="radio" name="mat" value="tuff" checked>
+              <span><span class="mn">Tuff Tile</span><br><span class="md">1 tile covers about 1 sq ft. Best for driveways, streets and parking.</span></span>
+              <span class="mp">PKR 75 <small>each</small></span>
+            </label>
+            <label class="mat-opt" id="optGutka">
+              <input type="radio" name="mat" value="gutka">
+              <span><span class="mn">Gutka Tile</span><br><span class="md">2 tiles cover about 1 sq ft. Classic brick look for walls and floors.</span></span>
+              <span class="mp">PKR 55 <small>each</small></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div><div class="rl">Tiles needed</div><div class="rv" id="resTiles">525</div></div>
+        <div><div class="rl">Estimated cost</div><div class="rv" id="resCost">PKR 39,375</div></div>
+        <div><div class="rl">Your area</div><div class="rv" id="resArea">500 sq ft</div></div>
+      </div>
+      <p class="calc-note">Estimate includes 5% extra tiles for cutting and breakage. Final rate is confirmed on call. Calculator rates are demo rates for this design sample.</p>
+      <div class="calc-wa">
+        <a class="btn btn-green bounce-cta" id="calcWa" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20here%20is%20my%20tile%20estimate:%0AArea:%20500%20sq%20ft%0AMaterial:%20Tuff%20Tile%20at%20PKR%2075%20each%0ATiles%20needed%20(with%205%25%20extra):%20525%0AEstimated%20cost:%20PKR%2039,375%0APlease%20confirm%20my%20order." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Send Estimate on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="sec" id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Featured Products</span>
+      <h2>Fresh from the yard
+        <svg class="squiggle" viewBox="0 0 170 14" aria-hidden="true"><path d="M3 8 Q 13 2 24 8 T 45 8 T 66 8 T 87 8 T 108 8 T 129 8 T 150 8 T 167 8"/></svg>
+      </h2>
+      <p>Real products and real prices from the GreenKrest live store. Tap Order and tell us your quantity.</p>
+    </div>
+    <div class="prod-grid">
+      <article class="prod">
+        <span class="tag">Flower Pots</span>
+        <div class="pimg"><img src="https://greenkrest.com/api/uploads/dead8214ca957feba2b1fcb35e590445.png" alt="Flower Pot" loading="lazy"></div>
+        <h3>Flower Pot</h3><p class="pcat">Flower Pots - garden and home</p>
+        <div class="prow"><span class="price">PKR 1,500</span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%20Flower%20Pot%20(PKR%201,500)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+      <article class="prod">
+        <span class="tag">Precast Slabs</span>
+        <div class="pimg"><img src="https://greenkrest.com/api/uploads/9f9f9cc9c91bf350bfb0a88e0d36b27b.png" alt="4 feet Precast Slab" loading="lazy"></div>
+        <h3>4' Precast Slab</h3><p class="pcat">Precast Slabs - roofing and floors</p>
+        <div class="prow"><span class="price">PKR 850</span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%204%20ft%20Precast%20Slab%20(PKR%20850)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+      <article class="prod">
+        <span class="tag">Girders</span>
+        <div class="pimg"><img src="https://greenkrest.com/api/uploads/6db3c7a83de3d38419ad83e81ccdfe67.png" alt="12 feet 6 inch Girder" loading="lazy"></div>
+        <h3>12'6" Girder</h3><p class="pcat">Girders - precast roof beams</p>
+        <div class="prow"><span class="price">PKR 5,796</span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%2012'6%20Girder%20(PKR%205,796)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+      <article class="prod">
+        <span class="tag">Tuff Tiles</span>
+        <div class="pimg"><img src="https://greenkrest.com/api/uploads/a372d62f5cb86bc89ccbda90c82594f6.png" alt="Tuff Tile" loading="lazy"></div>
+        <h3>Tuff Tile</h3><p class="pcat">Tuff Tiles - driveways and streets</p>
+        <div class="prow"><span class="price">PKR 75 <small>per tile</small></span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%20Tuff%20Tile%20(PKR%2075%20each)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+      <article class="prod">
+        <span class="tag">Benches</span>
+        <div class="pimg"><img src="https://greenkrest.com/api/uploads/a58f62a4c22ed0a386a4c7a086d06dbe.png" alt="Concrete Bench" loading="lazy"></div>
+        <h3>Concrete Bench</h3><p class="pcat">Benches - parks and gardens</p>
+        <div class="prow"><span class="price">PKR 15,000</span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%20Concrete%20Bench%20(PKR%2015,000)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+      <article class="prod">
+        <span class="tag">Exhaust Fans</span>
+        <div class="pimg"><img src="https://greenkrest.com/api/uploads/4ee3d90a724883ff0459850283a4ac76.png" alt="Exhaust Fan" loading="lazy"></div>
+        <h3>Exhaust Fan</h3><p class="pcat">Exhaust Fans - homes and shops</p>
+        <div class="prow"><span class="price">PKR 280</span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%20Exhaust%20Fan%20(PKR%20280)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+      <article class="prod">
+        <span class="tag">Bricks and Blocks</span>
+        <div class="pimg"><img src="https://greenkrest.com/assets/precast-wall-panel.jpg" alt="Hollow Concrete Blocks" loading="lazy"></div>
+        <h3>Hollow Concrete Blocks (100 Pcs)</h3><p class="pcat">Bricks and Blocks - strong walls</p>
+        <div class="prow"><span class="price">PKR 7,800</span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%20Hollow%20Concrete%20Blocks%20100%20Pcs%20(PKR%207,800)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+      <article class="prod">
+        <span class="tag">Girders</span>
+        <div class="pimg"><img src="https://greenkrest.com/assets/precast-i-beam.jpg" alt="Structural MS Girder and I-Beam" loading="lazy"></div>
+        <h3>Structural MS Girder &amp; I-Beam</h3><p class="pcat">Girders - heavy steel work</p>
+        <div class="prow"><span class="price">PKR 275,000</span>
+        <a class="order-btn" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order:%20Structural%20MS%20Girder%20and%20I-Beam%20(PKR%20275,000)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Order</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY + STEPS ================= -->
+<section class="sec" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Why GreenKrest</span>
+      <h2>A yard you can trust
+        <svg class="squiggle" viewBox="0 0 170 14" aria-hidden="true"><path d="M3 8 Q 13 2 24 8 T 45 8 T 66 8 T 87 8 T 108 8 T 129 8 T 150 8 T 167 8"/></svg>
+      </h2>
+    </div>
+    <div class="why-grid">
+      <div class="why">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4v-4l6 4V7h4v14H3z"/><path d="M17 7V4h3v3"/><path d="M7 21v-3h3v3"/></svg></span>
+        <h3>Our own precast yard</h3>
+        <p>Slabs, girders and tiles are cast in our own yard, so quality is checked piece by piece before loading.</p>
+      </div>
+      <div class="why">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3.6L20.5 11.5a2 2 0 0 1 0 2.8l-6.7 6.7a2 2 0 0 1-2.8 0L3.1 13.1A2 2 0 0 1 2.5 11.7V4.5A1.5 1.5 0 0 1 4 3h7.2c.5 0 1 .2 1.4.6z"/><circle cx="7.5" cy="8" r="1.4"/></svg></span>
+        <h3>Fair yard rates</h3>
+        <p>You buy direct from the maker. No shopkeeper margin, and the rate is confirmed before we load.</p>
+      </div>
+      <div class="why">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6h12v11h-12z"/><path d="M14.5 10h3.6l3 3.4V17h-6.6"/><circle cx="6.5" cy="17.8" r="1.9"/><circle cx="17.5" cy="17.8" r="1.9"/></svg></span>
+        <h3>Delivery to your site</h3>
+        <p>We load and deliver across Rawalpindi and Gujar Khan, so your work never waits for material.</p>
+      </div>
+    </div>
+  </div>
+  <div class="steps-band" id="how">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:38px;">
+        <h2>Ordering is this simple</h2>
+        <p>Three steps and the material is on its way.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Call</h3><p>Call or WhatsApp us at 0370 9595953 and tell us what you need and how much.</p></div>
+        <div class="step"><div class="n">2</div><h3>Confirm</h3><p>We confirm the rate, quantity and delivery time with you. No hidden charges.</p></div>
+        <div class="step"><div class="n">3</div><h3>Delivered</h3><p>Your material is loaded at our yard and delivered straight to your site.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="sec" id="team" style="padding-top:10px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Our Team</span>
+      <h2>The people behind the yard
+        <svg class="squiggle" viewBox="0 0 170 14" aria-hidden="true"><path d="M3 8 Q 13 2 24 8 T 45 8 T 66 8 T 87 8 T 108 8 T 129 8 T 150 8 T 167 8"/></svg>
+      </h2>
+    </div>
+    <div class="team-grid">
+      <div class="member"><div class="avatar">MT</div><h3>Muhammad Tariq</h3><p>Founder &amp; Managing Director<br>24+ Years Experience</p></div>
+      <div class="member"><div class="avatar">HK</div><h3>Engr. Hamza Khan</h3><p>GreenKrest Team</p></div>
+      <div class="member"><div class="avatar">BA</div><h3>Bilal Ahmed</h3><p>GreenKrest Team</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Green<em>Krest</em></div>
+        <p>Precast slabs, girders, tuff tiles, gutka tiles, flower pots, benches and building material, made in our own yard and delivered across Rawalpindi and Gujar Khan.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#calculator">Tile Calculator</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#team">Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in Touch</h3>
+        <ul>
+          <li>Phone and WhatsApp: <a href="tel:+923709595953">0370 9595953</a></li>
+          <li>Rawalpindi and Gujar Khan, Punjab, Pakistan</li>
+          <li style="margin-top:14px;"><a class="btn btn-orange" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20have%20a%20question%20about%20your%20material." target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <div>© <span id="year">2026</span> GreenKrest. All rights reserved.</div>
+      <div class="sample">Design sample for GreenKrest - demo prices and products from the live store.</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/923709595953?text=Hello%20GreenKrest,%20I%20want%20to%20order%20building%20material." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  /* ---------- Tile calculator ---------- */
+  var MATERIALS = {
+    tuff:  { name: "Tuff Tile",  price: 75, cover: 1   },
+    gutka: { name: "Gutka Tile", price: 55, cover: 0.5 }
+  };
+  var areaInput = document.getElementById("areaInput");
+  var resTiles  = document.getElementById("resTiles");
+  var resCost   = document.getElementById("resCost");
+  var resArea   = document.getElementById("resArea");
+  var calcWa    = document.getElementById("calcWa");
+  var optTuff   = document.getElementById("optTuff");
+  var optGutka  = document.getElementById("optGutka");
+
+  function fmt(n){ return n.toLocaleString("en-US"); }
+
+  function currentMat(){
+    var r = document.querySelector('input[name="mat"]:checked');
+    return r ? r.value : "tuff";
+  }
+
+  function calc(){
+    var key = currentMat();
+    var m = MATERIALS[key];
+    var area = parseFloat(areaInput.value);
+    if (isNaN(area) || area < 0) area = 0;
+    var tiles = Math.ceil((area / m.cover) * 1.05);
+    var cost  = tiles * m.price;
+    resTiles.textContent = fmt(tiles);
+    resCost.textContent  = "PKR " + fmt(cost);
+    resArea.textContent  = fmt(area) + " sq ft";
+    optTuff.classList.toggle("sel", key === "tuff");
+    optGutka.classList.toggle("sel", key === "gutka");
+    var msg = "Hello GreenKrest, here is my tile estimate:\n" +
+              "Area: " + fmt(area) + " sq ft\n" +
+              "Material: " + m.name + " at PKR " + m.price + " each\n" +
+              "Tiles needed (with 5% extra): " + fmt(tiles) + "\n" +
+              "Estimated cost: PKR " + fmt(cost) + "\n" +
+              "Please confirm my order.";
+    calcWa.href = "https://wa.me/923709595953?text=" + encodeURIComponent(msg);
+  }
+
+  areaInput.addEventListener("input", calc);
+  var radios = document.querySelectorAll('input[name="mat"]');
+  for (var i = 0; i < radios.length; i++){ radios[i].addEventListener("change", calc); }
+  calc();
+
+  /* ---------- Animated counters (run once on load) ---------- */
+  var counters = document.querySelectorAll(".count");
+  counters.forEach(function(el){
+    var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+    var start = null, dur = 1300;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      el.textContent = Math.round(to * (0.2 + 0.8 * p * p));
+      if (p < 1) requestAnimationFrame(step); else el.textContent = to;
+    }
+    requestAnimationFrame(step);
+  });
+
+  /* ---------- Footer year ---------- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

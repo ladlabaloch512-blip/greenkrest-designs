@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenKrest - Construction Materials and Precast Specialists, Rawalpindi</title>
+<meta name="description" content="GreenKrest supplies girders, precast slabs, tuff tiles, flower pots and building materials in Rawalpindi and Gujar Khan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#047857;
+    --green-dark:#065f46;
+    --green-deep:#064e3b;
+    --green-soft:#ecfdf5;
+    --green-mist:#d1fae5;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --grey:#f3f4f6;
+    --grey-soft:#f8fafc;
+    --line:#e5e7eb;
+    --wa:#22a35a;
+    --radius:14px;
+    --shadow:0 6px 24px rgba(6,78,59,.10);
+    --shadow-hover:0 14px 34px rgba(6,78,59,.18);
+  }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; font-family:'Inter',Arial,sans-serif; color:var(--ink); background:#ffffff; line-height:1.55; }
+  h1,h2,h3,h4,p,ul,figure{ margin:0; padding:0; }
+  ul{ list-style:none; }
+  img{ max-width:100%; display:block; }
+  a{ text-decoration:none; color:inherit; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 20px; }
+
+  /* ---------- Header ---------- */
+  header{ position:sticky; top:0; z-index:60; background:#ffffff; border-bottom:1px solid var(--line); }
+  .header-in{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; }
+  .logo{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.3rem; color:var(--green-deep); letter-spacing:-.02em; }
+  .logo-mark{ width:40px; height:40px; border-radius:10px; background:var(--green); display:grid; place-items:center; flex:none; }
+  .logo span{ color:var(--green); }
+  nav.main-nav{ display:flex; gap:26px; }
+  nav.main-nav a{ font-size:.95rem; font-weight:500; color:var(--ink); padding:4px 0; background:linear-gradient(var(--green),var(--green)) left bottom / 0% 2px no-repeat; transition:background-size .3s ease, color .3s ease; }
+  nav.main-nav a:hover{ color:var(--green); background-size:100% 2px; }
+  .header-actions{ display:flex; gap:10px; align-items:center; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:.95rem; padding:11px 20px; border-radius:10px; border:1px solid transparent; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease, background .25s ease; }
+  .btn svg{ flex:none; }
+  .btn-green{ background:var(--green); color:#fff; }
+  .btn-green:hover{ background:var(--green-dark); transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+  .btn-wa{ background:var(--wa); color:#fff; }
+  .btn-wa:hover{ background:#1b8a4a; transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+  .btn-outline{ background:#fff; color:var(--green); border-color:var(--green); }
+  .btn-outline:hover{ background:var(--green-soft); transform:translateY(-2px); }
+  .btn-sm{ padding:9px 14px; font-size:.88rem; }
+
+  /* ---------- Hero ---------- */
+  .hero{ background:linear-gradient(180deg,#ffffff 0%, var(--green-soft) 100%); overflow:hidden; }
+  .hero-in{ display:grid; grid-template-columns:1.05fr .95fr; gap:44px; align-items:center; padding:58px 0 10px; }
+  .hero-text{ animation:heroUp .8s ease both; }
+  @keyframes heroUp{ from{ transform:translateY(18px); } to{ transform:translateY(0); } }
+  .hero-tag{ display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--green-mist); color:var(--green-dark); font-size:.82rem; font-weight:600; padding:6px 12px; border-radius:999px; margin-bottom:18px; }
+  .hero-tag .dot{ width:8px; height:8px; border-radius:50%; background:var(--green); animation:dotPulse 2s ease-in-out infinite; }
+  @keyframes dotPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.5); } }
+  .hero h1{ font-size:2.6rem; line-height:1.12; font-weight:800; letter-spacing:-.02em; color:var(--green-deep); }
+  .hero h1 .hl{ color:var(--green); }
+  .hero p.lead{ margin-top:16px; font-size:1.08rem; color:var(--muted); max-width:520px; }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; }
+  .hero-points{ display:flex; gap:20px; flex-wrap:wrap; margin-top:26px; }
+  .hero-points li{ display:flex; align-items:center; gap:7px; font-size:.9rem; font-weight:500; color:var(--ink); }
+  .hero-points svg{ color:var(--green); }
+  .hero-media{ position:relative; animation:heroUp .8s ease .1s both; }
+  .hero-media .frame{ border-radius:20px; overflow:hidden; box-shadow:var(--shadow-hover); border:6px solid #ffffff; }
+  .hero-media img{ width:100%; height:380px; object-fit:cover; }
+  .hero-badge{ position:absolute; left:-14px; bottom:26px; background:#ffffff; border-radius:12px; box-shadow:var(--shadow); padding:12px 16px; display:flex; align-items:center; gap:12px; animation:badgeFloat 5s ease-in-out infinite; }
+  @keyframes badgeFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+  .hero-badge .num{ font-size:1.35rem; font-weight:800; color:var(--green); line-height:1; }
+  .hero-badge .lbl{ font-size:.78rem; color:var(--muted); font-weight:500; }
+
+  /* ---------- Drifting wave dividers ---------- */
+  .waves{ position:relative; height:58px; overflow:hidden; line-height:0; }
+  .waves svg{ position:absolute; bottom:-2px; left:0; width:200%; height:100%; }
+  .waves .w-back{ opacity:.35; animation:waveDrift 20s linear infinite reverse; }
+  .waves .w-front{ animation:waveDrift 11s linear infinite; }
+  @keyframes waveDrift{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  .waves.on-white{ background:var(--green-soft); }
+  .waves.on-green{ background:var(--green); }
+  .waves.on-grey{ background:var(--grey-soft); }
+
+  /* ---------- Section scaffolding ---------- */
+  section{ padding:64px 0; }
+  .sec-head{ text-align:center; max-width:640px; margin:0 auto 38px; }
+  .sec-kicker{ display:inline-block; font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--green); background:var(--green-soft); border:1px solid var(--green-mist); padding:5px 12px; border-radius:999px; margin-bottom:12px; }
+  .sec-head h2{ font-size:2rem; font-weight:800; letter-spacing:-.02em; color:var(--green-deep); }
+  .sec-head p{ margin-top:10px; color:var(--muted); }
+
+  /* ---------- Categories ---------- */
+  .cat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .cat-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 18px; display:flex; align-items:center; gap:14px; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .cat-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--green-mist); }
+  .cat-ico{ width:46px; height:46px; border-radius:12px; background:var(--green-soft); color:var(--green); display:grid; place-items:center; flex:none; transition:background .25s ease, color .25s ease; }
+  .cat-card:hover .cat-ico{ background:var(--green); color:#fff; }
+  .cat-card h3{ font-size:.98rem; font-weight:700; }
+  .cat-card p{ font-size:.82rem; color:var(--muted); }
+
+  /* ---------- Stats band ---------- */
+  .stats-band{ position:relative; background:var(--green); color:#fff; overflow:hidden; }
+  .stats-pattern{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+  .stats-in{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center; padding:46px 0; }
+  .stat-num{ font-size:2.5rem; font-weight:800; line-height:1; letter-spacing:-.02em; }
+  .stat-lbl{ margin-top:8px; font-size:.92rem; color:var(--green-mist); font-weight:500; }
+  .stat{ padding:6px 4px; border-radius:12px; transition:background .25s ease; }
+  .stat:hover{ background:rgba(255,255,255,.08); }
+
+  /* ---------- Products ---------- */
+  .prod-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .prod-card{ background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease; }
+  .prod-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-hover); }
+  .card-wave{ position:relative; background:linear-gradient(120deg, var(--green) 0%, var(--green-dark) 100%); height:48px; flex:none; }
+  .card-wave svg{ position:absolute; left:0; right:0; bottom:-1px; width:100%; height:22px; display:block; }
+  .card-wave .cat-label{ position:absolute; top:8px; left:14px; color:#fff; font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+  .card-wave .wave-mark{ position:absolute; top:6px; right:12px; opacity:.85; }
+  .prod-img{ height:170px; overflow:hidden; background:var(--grey-soft); }
+  .prod-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .prod-card:hover .prod-img img{ transform:scale(1.06); }
+  .prod-body{ padding:16px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .prod-body h3{ font-size:1rem; font-weight:700; line-height:1.3; }
+  .prod-price{ font-size:1.12rem; font-weight:800; color:var(--green); }
+  .prod-price small{ font-size:.78rem; color:var(--muted); font-weight:500; }
+  .prod-body .btn{ margin-top:auto; justify-content:center; }
+
+  /* ---------- Why choose us ---------- */
+  .why{ background:var(--grey-soft); }
+  .why-in{ display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; }
+  .why h2{ font-size:2rem; font-weight:800; letter-spacing:-.02em; color:var(--green-deep); }
+  .why .intro{ margin-top:12px; color:var(--muted); }
+  .why-list{ margin-top:24px; display:grid; gap:16px; }
+  .why-list li{ display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; transition:transform .25s ease, box-shadow .25s ease; }
+  .why-list li:hover{ transform:translateX(6px); box-shadow:var(--shadow); }
+  .why-list .wave-bullet{ flex:none; margin-top:3px; }
+  .why-list h3{ font-size:.98rem; font-weight:700; }
+  .why-list p{ font-size:.88rem; color:var(--muted); margin-top:2px; }
+  .why-media{ border-radius:20px; overflow:hidden; box-shadow:var(--shadow); border:6px solid #fff; }
+  .why-media img{ width:100%; height:420px; object-fit:cover; }
+
+  /* ---------- Process timeline ---------- */
+  .process{ background:#ffffff; }
+  .timeline{ position:relative; max-width:1020px; margin:10px auto 0; }
+  .tl-track{ position:absolute; top:35px; left:12%; right:12%; height:6px; background:var(--green-mist); border-radius:99px; overflow:hidden; }
+  .tl-fill{ height:100%; width:0; background:linear-gradient(90deg, var(--green), var(--green-dark)); border-radius:99px; animation:tlFill 8s linear infinite; }
+  @keyframes tlFill{
+    0%{ width:0; } 22%{ width:33.33%; } 47%{ width:66.66%; }
+    72%{ width:100%; } 92%{ width:100%; } 100%{ width:0; }
+  }
+  .tl-steps{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .tl-step{ text-align:center; padding:0 6px; }
+  .tl-dot{ width:70px; height:70px; margin:0 auto; border-radius:50%; background:#ffffff; border:3px solid var(--green-mist); color:#9ca3af; display:grid; place-items:center; position:relative; z-index:2; }
+  .tl-step:nth-child(1) .tl-dot{ animation:tlLight1 8s linear infinite; }
+  .tl-step:nth-child(2) .tl-dot{ animation:tlLight2 8s linear infinite; }
+  .tl-step:nth-child(3) .tl-dot{ animation:tlLight3 8s linear infinite; }
+  .tl-step:nth-child(4) .tl-dot{ animation:tlLight4 8s linear infinite; }
+  @keyframes tlLight1{ 0%,4%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } 9%,92%{ background:var(--green); border-color:var(--green-dark); color:#fff; box-shadow:0 0 0 7px var(--green-soft); } 97%,100%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } }
+  @keyframes tlLight2{ 0%,25%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } 31%,92%{ background:var(--green); border-color:var(--green-dark); color:#fff; box-shadow:0 0 0 7px var(--green-soft); } 97%,100%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } }
+  @keyframes tlLight3{ 0%,50%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } 56%,92%{ background:var(--green); border-color:var(--green-dark); color:#fff; box-shadow:0 0 0 7px var(--green-soft); } 97%,100%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } }
+  @keyframes tlLight4{ 0%,75%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } 81%,94%{ background:var(--green); border-color:var(--green-dark); color:#fff; box-shadow:0 0 0 7px var(--green-soft); } 98%,100%{ background:#fff; border-color:var(--green-mist); color:#9ca3af; box-shadow:none; } }
+  .tl-step h3{ margin-top:14px; font-size:1rem; font-weight:700; color:var(--green-deep); }
+  .tl-step .tl-num{ display:block; font-size:.75rem; font-weight:700; letter-spacing:.12em; color:var(--green); text-transform:uppercase; margin-bottom:2px; }
+  .tl-step p{ margin-top:5px; font-size:.87rem; color:var(--muted); }
+
+  /* ---------- Team ---------- */
+  .team{ background:var(--grey-soft); }
+  .team-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:960px; margin:0 auto; }
+  .team-card{ background:#fff; border:1px solid var(--line); border-radius:18px; padding:30px 22px 26px; text-align:center; transition:transform .25s ease, box-shadow .25s ease; }
+  .team-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-hover); }
+  .avatar-float{ display:inline-block; animation:avatarFloat 5.5s ease-in-out infinite; }
+  .team-card:nth-child(2) .avatar-float{ animation-delay:.7s; }
+  .team-card:nth-child(3) .avatar-float{ animation-delay:1.4s; }
+  @keyframes avatarFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+  .avatar{ width:98px; height:98px; border-radius:50%; background:linear-gradient(140deg, var(--green) 0%, var(--green-dark) 100%); color:#fff; display:grid; place-items:center; font-size:1.7rem; font-weight:800; letter-spacing:.02em; border:3px solid #ffffff; box-shadow:0 0 0 3px var(--green), 0 0 0 8px var(--green-mist), 0 10px 20px rgba(6,78,59,.22); }
+  .team-card h3{ margin-top:18px; font-size:1.08rem; font-weight:700; color:var(--green-deep); }
+  .team-card .role{ margin-top:4px; font-size:.9rem; font-weight:600; color:var(--green); }
+  .team-card .exp{ margin-top:8px; font-size:.86rem; color:var(--muted); }
+
+  /* ---------- Testimonials ---------- */
+  .tst-card{ position:relative; max-width:760px; margin:0 auto; background:#ffffff; border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow); padding:44px 40px 30px; overflow:hidden; }
+  .tst-quote{ position:absolute; top:-26px; left:-14px; width:130px; height:130px; color:var(--green-mist); pointer-events:none; }
+  .tst-viewport{ display:grid; position:relative; }
+  .tst-slide{ grid-area:1 / 1; opacity: 0; pointer-events:none; transition:opacity .8s ease; text-align:center; padding:6px 4px 2px; }
+  .tst-slide.active{ opacity: 1; pointer-events:auto; }
+  .tst-stars{ display:flex; justify-content:center; gap:3px; color:#f59e0b; margin-bottom:14px; }
+  .tst-text{ font-size:1.12rem; line-height:1.6; color:var(--ink); font-weight:500; }
+  .tst-who{ margin-top:16px; font-weight:700; color:var(--green-deep); }
+  .tst-where{ font-size:.87rem; color:var(--muted); }
+  .tst-dots{ display:flex; justify-content:center; gap:8px; margin-top:22px; position:relative; }
+  .tst-dot{ width:11px; height:11px; border-radius:50%; border:2px solid var(--green); background:transparent; padding:0; cursor:pointer; transition:background .3s ease, transform .3s ease; }
+  .tst-dot:hover{ transform:scale(1.2); }
+  .tst-dot.active{ background:var(--green); }
+
+  /* ---------- FAQ ---------- */
+  .faq{ background:var(--grey-soft); }
+  .faq-list{ max-width:780px; margin:0 auto; display:grid; gap:12px; }
+  .faq-item{ background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; transition:border-color .25s ease, box-shadow .25s ease; }
+  .faq-item:hover{ border-color:var(--green-mist); }
+  .faq-item[open ]{ border-color:var(--green); box-shadow:var(--shadow); }
+  .faq-item summary{ list-style:none; cursor:pointer; padding:17px 20px; font-weight:600; font-size:.99rem; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-icon{ flex:none; width:26px; height:26px; border-radius:50%; background:var(--green-soft); color:var(--green); display:grid; place-items:center; transition:transform .3s ease, background .3s ease; }
+  .faq-item[open ] .faq-icon{ transform:rotate(45deg); background:var(--green); color:#fff; }
+  .faq-item .faq-body{ padding:0 20px 18px; color:var(--muted); font-size:.93rem; }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--green-deep); color:#d1fae5; }
+  .footer-in{ display:grid; grid-template-columns:1.3fr 1fr 1.2fr; gap:36px; padding:52px 0 34px; }
+  footer .logo{ color:#ffffff; }
+  footer p{ font-size:.92rem; color:#a7f3d7; margin-top:12px; max-width:340px; }
+  footer h4{ color:#ffffff; font-size:1rem; margin-bottom:14px; }
+  .footer-links li{ margin-bottom:9px; }
+  .footer-links a{ font-size:.92rem; color:#a7f3d7; transition:color .25s ease, padding-left .25s ease; }
+  .footer-links a:hover{ color:#ffffff; padding-left:5px; }
+  .footer-contact li{ display:flex; gap:10px; align-items:flex-start; margin-bottom:12px; font-size:.92rem; color:#a7f3d7; }
+  .footer-contact svg{ flex:none; margin-top:2px; color:#6ee7b7; }
+  .footer-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+  .footer-bottom{ border-top:1px solid rgba(255,255,255,.16); padding:18px 0 22px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.84rem; color:#a7f3d7; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1020px){
+    .prod-grid{ grid-template-columns:repeat(3,1fr); }
+    .cat-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width: 860px){
+    nav.main-nav{ display:none; }
+    .hero-in{ grid-template-columns:1fr; gap:30px; padding-top:40px; }
+    .hero-media img{ height:280px; }
+    .hero-badge{ left:10px; }
+    .why-in{ grid-template-columns:1fr; gap:28px; }
+    .why-media img{ height:280px; }
+    .footer-in{ grid-template-columns:1fr; gap:28px; }
+  }
+  @media (max-width: 680px){
+    .prod-grid{ grid-template-columns:repeat(2,1fr); gap:14px; }
+    .stats-in{ grid-template-columns:repeat(2,1fr); gap:18px; padding:36px 0; }
+    .team-grid{ grid-template-columns:1fr; max-width:420px; }
+    .hero h1{ font-size:2rem; }
+    .sec-head h2, .why h2{ font-size:1.6rem; }
+    section{ padding:48px 0; }
+    .tst-card{ padding:38px 20px 24px; }
+    /* Timeline turns vertical */
+    .tl-track{ top:0; bottom:0; left:34px; right:auto; width:6px; height:auto; }
+    .tl-fill{ width:100%; height:0; animation-name:tlFillY; }
+    @keyframes tlFillY{
+      0%{ height:0; } 22%{ height:33.33%; } 47%{ height:66.66%; }
+      72%{ height:100%; } 92%{ height:100%; } 100%{ height:0; }
+    }
+    .tl-steps{ grid-template-columns:1fr; gap:26px; }
+    .tl-step{ text-align:left; display:grid; grid-template-columns:70px 1fr; column-gap:16px; align-items:start; padding:0; }
+    .tl-dot{ margin:0; }
+    .tl-step h3{ margin-top:4px; }
+  }
+  @media (max-width: 420px){
+    .prod-grid{ grid-template-columns:1fr; }
+    .cat-grid{ grid-template-columns:1fr; }
+    .header-actions .btn span.lbl-txt{ display:none; }
+    .hero-ctas .btn{ width:100%; justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#top" aria-label="GreenKrest home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9.5L12 4l7 5.5V20" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 20v-5h5v5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Green<span>Krest</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#products">Products</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">How We Deliver</a>
+      <a href="#team">Our Team</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-outline btn-sm" href="tel:03709595953">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl-txt">0370 9595953</span>
+      </a>
+      <a class="btn btn-wa btn-sm" href="https://wa.me/923709595953" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
+        <span class="lbl-txt">WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="top">
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <span class="hero-tag"><span class="dot"></span> Precast Specialists - Rawalpindi and Gujar Khan</span>
+      <h1>Strong Materials for <span class="hl">Strong Buildings</span></h1>
+      <p class="lead">Girders, precast slabs, tuff tiles, flower pots and blocks, made with care and delivered to your site at fair prices.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-green" href="#products">Browse Products
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-wa" href="https://wa.me/923709595953?text=I%20want%20a%20price%20quote%20from%20GreenKrest" target="_blank" rel="noopener">Get a Quote on WhatsApp</a>
+      </div>
+      <ul class="hero-points">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Factory rates</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Same week delivery</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Checked quality</li>
+      </ul>
+    </div>
+    <div class="hero-media">
+      <div class="frame">
+        <img src="https://greenkrest.com/assets/precast-i-beam.jpg" alt="Structural steel girders and I-beams at the GreenKrest yard">
+      </div>
+      <div class="hero-badge">
+        <div>
+          <div class="num">24+</div>
+          <div class="lbl">Years of Experience</div>
+        </div>
+        <div>
+          <div class="num">99+</div>
+          <div class="lbl">Products in Store</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="waves on-white" aria-hidden="true">
+    <svg class="w-back" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#a7f3d7"/></svg>
+    <svg class="w-front" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#ffffff"/></svg>
+  </div>
+</div>
+
+<!-- ================= CATEGORIES ================= -->
+<section style="padding-top:52px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">Our Range</span>
+      <h2>Shop by Category</h2>
+      <p>Everything you need for your project, from foundation to finishing, under one roof.</p>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17h18M4 17l2-9h3l-2 9M11 17l2-9h3l-2 9M18 17l2-9h2"/></svg></span>
+        <span><h3>Girders</h3><p>36 products</p></span>
+      </a>
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-7-1.2-7-3v-3h14v3c0 1.8-3 3-7 3z"/><path d="M12 15c0-3 1-5.5 4-7-1 3.5-1.5 5-1 7M12 15c0-3.5-1.5-6-5-7.5C8 11 9 13 10 15"/></svg></span>
+        <span><h3>Flower Pots</h3><p>26 products</p></span>
+      </a>
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h18M3 13h18M3 18h18"/><path d="M7 5v16M17 5v16" stroke-dasharray="2.5 3.5"/></svg></span>
+        <span><h3>Precast Slabs</h3><p>19 products</p></span>
+      </a>
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="8" height="8" rx="1"/><rect x="13" y="4" width="8" height="8" rx="1"/><rect x="3" y="14" width="8" height="8" rx="1"/><rect x="13" y="14" width="8" height="8" rx="1"/></svg></span>
+        <span><h3>Gutka Tiles</h3><p>Strong and neat</p></span>
+      </a>
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20L20 4M4 4h6M4 4v6M20 20h-6M20 20v-6"/></svg></span>
+        <span><h3>Tuff Tiles</h3><p>For floors and yards</p></span>
+      </a>
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 10h18M5 10v8M19 10v8M3 18h18M8 6h8"/></svg></span>
+        <span><h3>Benches</h3><p>Concrete benches</p></span>
+      </a>
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 8.8c.6-2.3 1.8-4 3.8-4.8.6 2 .3 4-1 5.6M15.2 12c2.3.6 4 1.8 4.8 3.8-2 .6-4 .3-5.6-1M12 15.2c-.6 2.3-1.8 4-3.8 4.8-.6-2-.3-4 1-5.6M8.8 12C6.5 11.4 4.8 10.2 4 8.2c2-.6 4-.3 5.6 1"/></svg></span>
+        <span><h3>Exhaust Fans</h3><p>All common sizes</p></span>
+      </a>
+      <a class="cat-card" href="#products">
+        <span class="cat-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="6" rx="1"/><rect x="3" y="13" width="18" height="6" rx="1"/><path d="M9 5v6M15 13v6"/></svg></span>
+        <span><h3>Bricks and Blocks</h3><p>Hollow and solid</p></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS BAND ================= -->
+<div class="stats-band">
+  <svg class="stats-pattern" aria-hidden="true">
+    <defs>
+      <pattern id="dotgrid" width="26" height="26" patternUnits="userSpaceOnUse">
+        <circle cx="2.5" cy="2.5" r="2.5" fill="#ffffff" opacity=".16"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#dotgrid)"/>
+  </svg>
+  <div class="wrap stats-in">
+    <div class="stat">
+      <div class="stat-num" data-target="99" data-suffix="+">99+</div>
+      <div class="stat-lbl">Products in Store</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="24" data-suffix="+">24+</div>
+      <div class="stat-lbl">Years of Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="8" data-suffix="">8</div>
+      <div class="stat-lbl">Product Categories</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="2" data-suffix="">2</div>
+      <div class="stat-lbl">Cities Served</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PRODUCTS ================= -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">Featured Products</span>
+      <h2>Best Sellers from Our Store</h2>
+      <p>Real products with real prices from the live GreenKrest store. Order on WhatsApp in one tap.</p>
+    </div>
+    <div class="prod-grid">
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Flower Pots</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/api/uploads/dead8214ca957feba2b1fcb35e590445.png" alt="Flower Pot" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>Flower Pot</h3>
+          <div class="prod-price">PKR 1,500 <small>/ piece</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%20Flower%20Pot%20(PKR%201%2C500)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Precast Slabs</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/api/uploads/9f9f9cc9c91bf350bfb0a88e0d36b27b.png" alt="4 feet Precast Slab" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>4' Precast Slab</h3>
+          <div class="prod-price">PKR 850 <small>/ piece</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%204%27%20Precast%20Slab%20(PKR%20850)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Girders</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/api/uploads/6db3c7a83de3d38419ad83e81ccdfe67.png" alt="12 feet 6 inch Girder" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>12'6" Girder</h3>
+          <div class="prod-price">PKR 5,796 <small>/ piece</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%2012%276%22%20Girder%20(PKR%205%2C796)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Tuff Tiles</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/api/uploads/a372d62f5cb86bc89ccbda90c82594f6.png" alt="Tuff Tile" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>Tuff Tile</h3>
+          <div class="prod-price">PKR 75 <small>/ piece</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%20Tuff%20Tile%20(PKR%2075)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Benches</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/api/uploads/a58f62a4c22ed0a386a4c7a086d06dbe.png" alt="Concrete Bench" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>Concrete Bench</h3>
+          <div class="prod-price">PKR 15,000 <small>/ piece</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%20Concrete%20Bench%20(PKR%2015%2C000)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Exhaust Fans</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/api/uploads/4ee3d90a724883ff0459850283a4ac76.png" alt="Exhaust Fan" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>Exhaust Fan</h3>
+          <div class="prod-price">PKR 280 <small>/ piece</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%20Exhaust%20Fan%20(PKR%20280)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Bricks and Blocks</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/assets/precast-wall-panel.jpg" alt="Hollow Concrete Blocks" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>Hollow Concrete Blocks (100 Pcs)</h3>
+          <div class="prod-price">PKR 7,800 <small>/ set</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%20Hollow%20Concrete%20Blocks%20(PKR%207%2C800)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="card-wave">
+          <span class="cat-label">Girders</span>
+          <svg class="wave-mark" width="30" height="12" viewBox="0 0 30 12" fill="none"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,58 480,4 720,30 C960,58 1200,4 1440,30 C1680,58 1920,4 2160,30 C2400,58 2640,4 2880,30 L2880,60 L0,60 Z" fill="#ffffff"/></svg>
+        </div>
+        <div class="prod-img"><img src="https://greenkrest.com/assets/precast-i-beam.jpg" alt="Structural MS Girder and I-Beam" loading="lazy"></div>
+        <div class="prod-body">
+          <h3>Structural MS Girder &amp; I-Beam</h3>
+          <div class="prod-price">PKR 275,000 <small>/ piece</small></div>
+          <a class="btn btn-green btn-sm" href="https://wa.me/923709595953?text=I%20want%20to%20order%20Structural%20MS%20Girder%20and%20I-Beam%20(PKR%20275%2C000)" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why" id="why" style="padding-top:0;">
+  <div class="waves on-grey" aria-hidden="true" style="background:#ffffff;">
+    <svg class="w-back" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#a7f3d7"/></svg>
+    <svg class="w-front" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#f8fafc"/></svg>
+  </div>
+  <div class="wrap why-in" style="padding-top:14px;">
+    <div>
+      <span class="sec-kicker">Why Choose Us</span>
+      <h2>Materials You Can Trust, Service You Can Call</h2>
+      <p class="intro">We make and supply our own precast products, so you get honest rates and checked quality on every single order.</p>
+      <ul class="why-list">
+        <li>
+          <svg class="wave-bullet" width="30" height="12" viewBox="0 0 30 12" fill="none" aria-hidden="true"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#047857" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span><h3>Own Factory Rates</h3><p>No middleman. You pay the making price, not a market markup.</p></span>
+        </li>
+        <li>
+          <svg class="wave-bullet" width="30" height="12" viewBox="0 0 30 12" fill="none" aria-hidden="true"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#047857" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span><h3>Checked Strength</h3><p>Every batch of slabs, girders and blocks is checked before it leaves the yard.</p></span>
+        </li>
+        <li>
+          <svg class="wave-bullet" width="30" height="12" viewBox="0 0 30 12" fill="none" aria-hidden="true"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#047857" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span><h3>On Time Delivery</h3><p>We deliver across Rawalpindi and Gujar Khan on the day we promise.</p></span>
+        </li>
+        <li>
+          <svg class="wave-bullet" width="30" height="12" viewBox="0 0 30 12" fill="none" aria-hidden="true"><path d="M1 8C5 3 9 3 13 8C17 13 21 13 25 8C27 5.5 28.5 5 29.5 6" stroke="#047857" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span><h3>Free Advice on Quantities</h3><p>Not sure how much you need? Call us and we will work it out with you, free.</p></span>
+        </li>
+      </ul>
+    </div>
+    <div class="why-media">
+      <img src="https://greenkrest.com/assets/precast-wall-panel.jpg" alt="Precast wall panels ready for delivery at GreenKrest" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS TIMELINE ================= -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">How We Deliver</span>
+      <h2>From Order to Your Site in 4 Steps</h2>
+      <p>Watch how a typical GreenKrest order moves. Simple, clear and on time.</p>
+    </div>
+    <div class="timeline" aria-label="Delivery process steps">
+      <div class="tl-track" aria-hidden="true"><div class="tl-fill"></div></div>
+      <div class="tl-steps">
+        <div class="tl-step">
+          <div class="tl-dot">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h15l-1.7 8.5a2 2 0 0 1-2 1.5H8.7a2 2 0 0 1-2-1.6L4.3 3.9A1 1 0 0 0 3.3 3H1.5"/><circle cx="9" cy="21" r="1.4"/><circle cx="17" cy="21" r="1.4"/></svg>
+          </div>
+          <div>
+            <h3><span class="tl-num">Step 1</span>Order Placed</h3>
+            <p>You order on WhatsApp or by phone and tell us your site location.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div>
+            <h3><span class="tl-num">Step 2</span>Confirmed</h3>
+            <p>We confirm your items, total amount and delivery day with you.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 6.5h13v11h-13zM14.5 10h4l3.5 3.5v4h-7.5"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+          </div>
+          <div>
+            <h3><span class="tl-num">Step 3</span>Dispatched</h3>
+            <p>Your material is loaded with care and the vehicle leaves our yard.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8.2v13H3V8.2"/><path d="M1.5 3.5h21V8H1.5z"/><path d="M10 12.5h4v8.5h-4z"/></svg>
+          </div>
+          <div>
+            <h3><span class="tl-num">Step 4</span>Delivered</h3>
+            <p>Material reaches your site. You check every piece, then you pay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="team" id="team" style="padding-top:0;">
+  <div class="waves" aria-hidden="true" style="background:#ffffff;">
+    <svg class="w-back" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#a7f3d7"/></svg>
+    <svg class="w-front" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#f8fafc"/></svg>
+  </div>
+  <div class="wrap" style="padding-top:14px;">
+    <div class="sec-head">
+      <span class="sec-kicker">Our Team</span>
+      <h2>The People Behind GreenKrest</h2>
+      <p>A small, experienced team that answers your call and stands behind every delivery.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team-card">
+        <span class="avatar-float"><span class="avatar" aria-hidden="true">MT</span></span>
+        <h3>Muhammad Tariq</h3>
+        <div class="role">Founder &amp; Managing Director</div>
+        <p class="exp">24+ Years Experience in construction materials and precast work.</p>
+      </article>
+      <article class="team-card">
+        <span class="avatar-float"><span class="avatar" aria-hidden="true">HK</span></span>
+        <h3>Engr. Hamza Khan</h3>
+        <div class="role">Technical Lead</div>
+        <p class="exp">Looks after product strength, sizing and quality checks on every batch.</p>
+      </article>
+      <article class="team-card">
+        <span class="avatar-float"><span class="avatar" aria-hidden="true">BA</span></span>
+        <h3>Bilal Ahmed</h3>
+        <div class="role">Sales and Delivery</div>
+        <p class="exp">Handles your orders, delivery planning and after sales support.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">Customer Reviews</span>
+      <h2>What Our Customers Say</h2>
+      <p>Sample reviews from construction customers in our area.</p>
+    </div>
+    <div class="tst-card">
+      <svg class="tst-quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.6 7.2C7.3 8.6 5 11.4 5 15.1c0 2.1 1.5 3.7 3.5 3.7 1.9 0 3.4-1.5 3.4-3.4 0-1.8-1.3-3.2-3-3.4.3-1.2 1.2-2.3 2.5-3L10.6 7.2zm8.4 0c-3.3 1.4-5.6 4.2-5.6 7.9 0 2.1 1.5 3.7 3.5 3.7 1.9 0 3.4-1.5 3.4-3.4 0-1.8-1.3-3.2-3-3.4.3-1.2 1.2-2.3 2.5-3L19 7.2z"/></svg>
+      <div class="tst-viewport">
+        <figure class="tst-slide active">
+          <div class="tst-stars" aria-label="5 star rating">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+          </div>
+          <blockquote class="tst-text">"Ordered girders and slabs for my house roof in Rawalpindi. Sizes were exact, strength was solid and the delivery came on the day they promised."</blockquote>
+          <figcaption>
+            <div class="tst-who">Imran Chaudhry</div>
+            <div class="tst-where">Contractor, Rawalpindi</div>
+          </figcaption>
+        </figure>
+        <figure class="tst-slide">
+          <div class="tst-stars" aria-label="5 star rating">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+          </div>
+          <blockquote class="tst-text">"We buy tuff tiles and blocks from GreenKrest for our plots near Gujar Khan. Rates are better than the market and the quality is the same every time."</blockquote>
+          <figcaption>
+            <div class="tst-who">Malik Asif</div>
+            <div class="tst-where">Home Builder, Gujar Khan</div>
+          </figcaption>
+        </figure>
+        <figure class="tst-slide">
+          <div class="tst-stars" aria-label="5 star rating">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+          </div>
+          <blockquote class="tst-text">"Good people to deal with. They helped me calculate the slabs I needed for free and not a single piece was broken when the vehicle reached my site."</blockquote>
+          <figcaption>
+            <div class="tst-who">Rana Waqas</div>
+            <div class="tst-where">Project Supervisor, Rawalpindi</div>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="tst-dots" role="tablist" aria-label="Choose review">
+        <button class="tst-dot active" type="button" aria-label="Show review 1"></button>
+        <button class="tst-dot" type="button" aria-label="Show review 2"></button>
+        <button class="tst-dot" type="button" aria-label="Show review 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq" style="padding-top:0;">
+  <div class="waves" aria-hidden="true" style="background:#ffffff;">
+    <svg class="w-back" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#a7f3d7"/></svg>
+    <svg class="w-front" viewBox="0 0 2880 100" preserveAspectRatio="none"><path d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 C1680,95 1920,15 2160,55 C2400,95 2640,15 2880,55 L2880,100 L0,100 Z" fill="#f8fafc"/></svg>
+  </div>
+  <div class="wrap" style="padding-top:14px;">
+    <div class="sec-head">
+      <span class="sec-kicker">FAQ</span>
+      <h2>Common Questions</h2>
+      <p>Quick answers before you order. For anything else, call us any time.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How do I place an order?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="faq-body">Tap any Order on WhatsApp button or call us on 0370 9595953. Tell us the product, quantity and your site location. We confirm the total and delivery day before anything moves.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Which areas do you deliver to?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="faq-body">We deliver across Rawalpindi and Gujar Khan, and to nearby areas on request. Delivery charges depend on your area and the size of the load. We always tell you the full amount before dispatch.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I get a custom size in slabs or girders?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="faq-body">Yes. We stock common sizes and can guide you on sizes for your plan. Share your room or roof sizes on WhatsApp and our team will suggest the right sizes and quantities.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I pay?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="faq-body">You check the material when it reaches your site, then pay. For large orders we may ask for a small booking amount first, and we always share the receipt details with you.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if a piece arrives broken?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="faq-body">Point it out at delivery time. Broken pieces from loading or transport are replaced or adjusted in your bill. That is our promise on every order.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-in">
+      <div>
+        <a class="logo" href="#top" aria-label="GreenKrest home">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9.5L12 4l7 5.5V20" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 20v-5h5v5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          Green<span style="color:#6ee7b7;">Krest</span>
+        </a>
+        <p>Construction materials and precast products, supplied across Rawalpindi and Gujar Khan at honest factory rates.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#process">How We Deliver</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Call or WhatsApp: <a href="tel:03709595953" style="color:#ffffff; font-weight:600;">0370 9595953</a></span>
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Rawalpindi and Gujar Khan, Punjab, Pakistan</span>
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 7v5l3.5 2"/></svg>
+            <span>Open all week, 8am to 8pm</span>
+          </li>
+        </ul>
+        <div class="footer-cta">
+          <a class="btn btn-wa btn-sm" href="https://wa.me/923709595953" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="btn btn-sm" style="background:#ffffff; color:var(--green-deep);" href="tel:03709595953">Call Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>GreenKrest - Construction Materials and Precast Specialists.</span>
+      <span>Design sample for GreenKrest - demo prices and products from the live store.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Count-up stats on load (final values are already in the HTML, so no-JS still shows them)
+  (function () {
+    var nums = document.querySelectorAll('.stat-num');
+    var DURATION = 1600;
+    nums.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      var startTime = null;
+      function tick(now) {
+        if (!startTime) startTime = now;
+        var p = Math.min((now - startTime) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(target * eased) + suffix;
+        if (p < 1) { requestAnimationFrame(tick); } else { el.textContent = target + suffix; }
+      }
+      requestAnimationFrame(tick);
+    });
+  })();
+
+  // Testimonial slider: crossfade every 4 seconds, dots clickable (first review is visible without JS)
+  (function () {
+    var slides = Array.prototype.slice.call(document.querySelectorAll('.tst-slide'));
+    var dots = Array.prototype.slice.call(document.querySelectorAll('.tst-dot'));
+    if (slides.length < 2) return;
+    var cur = 0, timer = null;
+    function show(i) {
+      slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
+      dots.forEach(function (d, k) { d.classList.toggle('active', k === i); });
+      cur = i;
+    }
+    function start() { timer = setInterval(function () { show((cur + 1) % slides.length); }, 4000); }
+    dots.forEach(function (d, k) {
+      d.addEventListener('click', function () {
+        if (timer) clearInterval(timer);
+        show(k);
+        start();
+      });
+    });
+    start();
+  })();
+</script>
+</body>
+</html>
