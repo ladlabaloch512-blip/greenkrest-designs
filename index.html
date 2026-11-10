@@ -3,61 +3,487 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GreenKrest - Animation Samples</title>
+<title>GreenKrest - All Animations Showcase</title>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; }
-  body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f3f5f3; color: #1c2420; }
-  header { background: #14532d; color: #fff; padding: 22px 18px; text-align: center; }
-  header h1 { margin: 0; font-size: 24px; }
-  header p { margin: 6px 0 0; font-size: 14px; opacity: .88; }
-  main { max-width: 760px; margin: 0 auto; padding: 20px 14px 50px; }
-  .note { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-bottom: 16px; }
-  a.sample { display: block; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 12px; text-decoration: none; color: #1c2420; }
-  a.sample:active { background: #ecfdf5; }
-  .num { display: inline-block; background: #14532d; color: #fff; font-weight: bold; border-radius: 8px; padding: 3px 10px; font-size: 13px; margin-bottom: 6px; }
-  a.sample h2 { margin: 2px 0 4px; font-size: 18px; color: #14532d; }
-  a.sample p { margin: 0; font-size: 14px; color: #475569; }
-  footer { text-align: center; font-size: 12px; color: #64748b; padding: 0 14px 30px; }
+  :root{ --green:#14532d; --green2:#16a34a; --lime:#84cc16; --ink:#15211a; --mut:#5b6b60; --bg:#f5f7f4; --card:#ffffff; --line:#e3eae4; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter',Arial,sans-serif; color:var(--ink); background:var(--bg); overflow-x:hidden; }
+  h1,h2,h3,.brand{ font-family:'Manrope',Arial,sans-serif; }
+  img{ display:block; max-width:100%; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 18px; }
+
+  /* header */
+  header{ position:sticky; top:0; z-index:60; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(6px); }
+  .hbar{ display:flex; align-items:center; gap:18px; padding:12px 0; }
+  .brand{ display:flex; align-items:center; gap:10px; font-size:22px; font-weight:800; color:var(--green); text-decoration:none; }
+  .brand .mark{ width:34px; height:34px; border-radius:9px; background:var(--green); color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; }
+  nav{ margin-left:auto; display:flex; gap:20px; }
+  nav a{ color:var(--ink); text-decoration:none; font-size:14px; font-weight:600; }
+  nav a:hover{ color:var(--green2); }
+  .cartbtn{ margin-left:8px; position:relative; display:flex; align-items:center; gap:8px; background:var(--green); color:#fff; border:0; border-radius:10px; padding:9px 14px; font-size:14px; font-weight:700; cursor:pointer; }
+  .cartbtn svg{ width:18px; height:18px; }
+  .badge{ position:absolute; top:-8px; right:-8px; min-width:22px; height:22px; padding:0 5px; border-radius:999px; background:var(--lime); color:#17351f; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; border:2px solid #fff; }
+  .badge.pop{ animation:pop .45s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes pop{ 0%{ transform:scale(.4);} 60%{ transform:scale(1.35);} 100%{ transform:scale(1);} }
+  @media (max-width:760px){ nav{ display:none; } .cartbtn{ margin-left:auto; } }
+
+  /* hero */
+  .hero{ position:relative; color:#fff; overflow:hidden; background:#0e2c1c; }
+  .hero .bgimg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.5; animation:kenburns 22s ease-in-out infinite alternate; }
+  @keyframes kenburns{ from{ transform:scale(1);} to{ transform:scale(1.09);} }
+  .hero .shade{ position:absolute; inset:0; background:linear-gradient(100deg, rgba(10,35,22,.88) 30%, rgba(10,35,22,.35) 75%); }
+  .hero .inner{ position:relative; padding:74px 0 84px; max-width:640px; }
+  .hero .kick{ display:inline-block; background:rgba(132,204,22,.18); border:1px solid rgba(132,204,22,.55); color:#d9f99d; font-size:12px; font-weight:700; letter-spacing:.14em; padding:6px 12px; border-radius:999px; margin-bottom:16px; }
+  .hero h1{ font-size:46px; line-height:1.08; font-weight:800; }
+  .hero h1 .w{ display:inline-block; animation:rise .8s cubic-bezier(.22,.61,.21,1) both; animation-delay:calc(var(--n) * 90ms); }
+  @keyframes rise{ from{ transform:translateY(26px); opacity:0;} to{ transform:translateY(0); opacity:1;} }
+  .hero p{ margin:16px 0 24px; font-size:17px; line-height:1.55; color:#e6f2e8; max-width:520px; }
+  .cta{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; border-radius:11px; padding:13px 20px; font-size:15px; font-weight:700; text-decoration:none; cursor:pointer; border:0; }
+  .btn.g{ background:var(--green2); color:#fff; }
+  .btn.w{ background:#fff; color:var(--green); }
+  .btn:active{ transform:scale(.97); }
+  .chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top:30px; }
+  .chip{ background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:8px 14px; font-size:13px; font-weight:600; animation:floaty 5s ease-in-out infinite; }
+  .chip:nth-child(2){ animation-delay:1.2s; } .chip:nth-child(3){ animation-delay:2.1s; }
+  @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-7px);} }
+  @media (max-width:640px){ .hero h1{ font-size:33px; } .hero .inner{ padding:52px 0 60px; } }
+
+  /* marquee */
+  .marquee{ background:var(--green); color:#fff; overflow:hidden; padding:11px 0; }
+  .mtrack{ display:flex; gap:0; white-space:nowrap; width:max-content; animation:mq 26s linear infinite; }
+  .mtrack span{ font-family:'Manrope'; font-weight:700; font-size:14px; letter-spacing:.06em; padding:0 14px; }
+  .mtrack i{ color:var(--lime); font-style:normal; }
+  @keyframes mq{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  /* sections */
+  section{ padding:58px 0 8px; }
+  .eyebrow{ color:var(--green2); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+  .stitle{ font-size:30px; font-weight:800; margin:6px 0 6px; }
+  .ssub{ color:var(--mut); font-size:15px; max-width:560px; line-height:1.55; }
+
+  /* categories */
+  .cats{ display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-top:24px; }
+  .cat{ position:relative; border-radius:14px; overflow:hidden; height:118px; text-decoration:none; }
+  .cat img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+  .cat:hover img{ transform:scale(1.1); }
+  .cat b{ position:absolute; left:0; right:0; bottom:0; padding:20px 10px 8px; color:#fff; font-size:13px; background:linear-gradient(transparent, rgba(8,25,15,.82)); }
+  @media (max-width:900px){ .cats{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:520px){ .cats{ grid-template-columns:repeat(2,1fr); } }
+
+  /* reveal (Wave Cascade, only when JS is on, with timed failsafe in JS) */
+  .js .rv{ opacity:0; transform:translateY(30px) scale(.985); transition:opacity .8s cubic-bezier(.22,.61,.21,1), transform .8s cubic-bezier(.22,.61,.21,1); transition-delay:calc(var(--i, 0) * 95ms); }
+  .js .rv.in{ opacity:1; transform:translateY(0) scale(1); }
+
+  /* products */
+  .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:26px; }
+  @media (max-width:1000px){ .grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:720px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:box-shadow .3s ease, transform .3s ease; }
+  .card:hover{ box-shadow:0 16px 34px rgba(20,83,45,.14); transform:translateY(-4px); }
+  .card .ph{ aspect-ratio:4/3; overflow:hidden; background:#eef2ee; }
+  .card .ph img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+  .card:hover .ph img{ transform:scale(1.07); }
+  .card .bd{ padding:13px 14px 15px; display:flex; flex-direction:column; gap:5px; flex:1; }
+  .card .cg{ font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--green2); text-transform:uppercase; }
+  .card h3{ font-size:16px; font-weight:700; line-height:1.3; }
+  .card .pr{ font-size:17px; font-weight:800; color:var(--green); margin-top:auto; }
+  .card .pr small{ color:var(--mut); font-weight:500; font-size:12px; }
+  .addbtn{ margin-top:9px; display:flex; align-items:center; justify-content:center; gap:7px; background:var(--green); color:#fff; border:0; border-radius:10px; padding:10px; font-size:14px; font-weight:700; cursor:pointer; transition:background .25s; }
+  .addbtn svg{ width:16px; height:16px; }
+  .addbtn.added{ background:var(--green2); }
+  .addbtn:active{ transform:scale(.97); }
+
+  /* why + stats */
+  .why{ display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:center; margin-top:8px; }
+  @media (max-width:820px){ .why{ grid-template-columns:1fr; } }
+  .why .photo{ border-radius:18px; overflow:hidden; }
+  .why .photo img{ width:100%; height:100%; min-height:280px; object-fit:cover; }
+  .points{ display:grid; gap:14px; margin-top:16px; }
+  .point{ display:flex; gap:12px; }
+  .point .ic{ flex:none; width:42px; height:42px; border-radius:12px; background:#e8f5ec; color:var(--green); display:flex; align-items:center; justify-content:center; }
+  .point .ic svg{ width:21px; height:21px; }
+  .point b{ display:block; font-size:15px; }
+  .point span{ color:var(--mut); font-size:14px; line-height:1.5; }
+  .stats{ margin-top:34px; background:var(--green); border-radius:18px; color:#fff; display:grid; grid-template-columns:repeat(4,1fr); padding:24px 10px; }
+  @media (max-width:720px){ .stats{ grid-template-columns:repeat(2,1fr); gap:18px 0; } }
+  .stat{ text-align:center; }
+  .stat .n{ font-family:'Manrope'; font-size:34px; font-weight:800; }
+  .stat .l{ font-size:13px; color:#cdeeda; margin-top:2px; }
+
+  /* reviews */
+  .revbox{ position:relative; background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px 24px 34px; margin-top:24px; min-height:158px; }
+  .rev{ position:absolute; inset:28px 24px auto; opacity:0; transform:translateY(10px); transition:opacity .7s ease, transform .7s ease; pointer-events:none; }
+  .rev.on{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .rev p{ font-size:17px; line-height:1.6; }
+  .rev .who{ margin-top:10px; color:var(--green); font-weight:700; font-size:14px; }
+  .dots{ position:absolute; bottom:14px; left:0; right:0; display:flex; gap:7px; justify-content:center; }
+  .dots button{ width:9px; height:9px; border-radius:99px; border:0; background:#cfdccf; cursor:pointer; padding:0; }
+  .dots button.on{ background:var(--green2); width:24px; }
+
+  /* order bar */
+  .orderbar{ position:fixed; left:0; right:0; bottom:0; z-index:70; background:#0e2c1c; color:#fff; transform:translateY(110%); transition:transform .45s cubic-bezier(.22,.61,.21,1); box-shadow:0 -8px 30px rgba(0,0,0,.25); }
+  .orderbar.show{ transform:translateY(0); }
+  .orderbar .in{ max-width:1180px; margin:0 auto; padding:13px 18px; display:flex; align-items:center; gap:14px; }
+  .orderbar .t{ font-size:15px; } .orderbar .t b{ font-size:17px; }
+  .orderbar .place{ margin-left:auto; background:var(--lime); color:#17351f; border:0; border-radius:11px; padding:12px 20px; font-size:15px; font-weight:800; cursor:pointer; }
+  .orderbar .place:active{ transform:scale(.97); }
+
+  /* confirmation overlay */
+  .ovl{ position:fixed; inset:0; z-index:90; background:rgba(9,26,17,.66); display:none; align-items:center; justify-content:center; padding:18px; }
+  .ovl.open{ display:flex; }
+  .sheet{ background:#fff; border-radius:20px; max-width:420px; width:100%; padding:30px 24px 24px; text-align:center; animation:sheetin .5s cubic-bezier(.22,.61,.21,1); }
+  @keyframes sheetin{ from{ transform:translateY(34px) scale(.97); opacity:0;} to{ transform:translateY(0) scale(1); opacity:1;} }
+  .ckwrap{ width:96px; height:96px; margin:0 auto 14px; }
+  .ckwrap circle{ fill:none; stroke:var(--green2); stroke-width:3; stroke-dasharray:290; stroke-dashoffset:290; }
+  .ckwrap path{ fill:none; stroke:var(--green2); stroke-width:4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:60; stroke-dashoffset:60; }
+  .ovl.open .ckwrap circle{ animation:draw 0.8s ease forwards; }
+  .ovl.open .ckwrap path{ animation:draw 0.5s ease 0.6s forwards; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .sheet h3{ font-size:21px; margin-bottom:5px; }
+  .sheet .ord{ color:var(--mut); font-size:14px; }
+  .steps{ display:flex; justify-content:space-between; margin:22px 4px 6px; position:relative; }
+  .steps:before{ content:""; position:absolute; top:13px; left:12%; right:12%; height:3px; background:#e3eae4; border-radius:3px; }
+  .steps .fill{ position:absolute; top:13px; left:12%; height:3px; width:0; background:var(--green2); border-radius:3px; transition:width 1.6s ease .5s; }
+  .ovl.open .steps .fill{ width:76%; }
+  .step{ position:relative; width:33%; text-align:center; font-size:12px; font-weight:700; color:var(--mut); }
+  .step .d{ width:27px; height:27px; margin:0 auto 6px; border-radius:99px; background:#e3eae4; color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; transition:background .4s; }
+  .step.lit{ color:var(--green); } .step.lit .d{ background:var(--green2); }
+  .sheet .done{ margin-top:18px; width:100%; background:var(--green); color:#fff; border:0; border-radius:11px; padding:13px; font-size:15px; font-weight:800; cursor:pointer; }
+
+  /* toast */
+  .toast{ position:fixed; left:16px; bottom:86px; z-index:80; background:#10281a; color:#fff; padding:12px 16px; border-radius:12px; font-size:14px; font-weight:600; display:flex; gap:9px; align-items:center; opacity:0; transform:translateY(16px); pointer-events:none; transition:opacity .35s, transform .35s; box-shadow:0 12px 30px rgba(0,0,0,.3); }
+  .toast.show{ opacity:1; transform:translateY(0); }
+  .toast svg{ width:17px; height:17px; color:var(--lime); flex:none; }
+
+  .flyimg{ position:fixed; z-index:95; border-radius:12px; pointer-events:none; object-fit:cover; box-shadow:0 14px 30px rgba(0,0,0,.3); }
+
+  footer{ margin-top:64px; background:#0e2c1c; color:#dcefe1; padding:38px 0 30px; }
+  footer .cols{ display:flex; gap:30px; flex-wrap:wrap; justify-content:space-between; }
+  footer b{ color:#fff; }
+  footer a{ color:#a7f3c9; text-decoration:none; font-weight:700; }
+  footer .small{ margin-top:20px; font-size:12px; color:#8fb89c; line-height:1.6; }
 </style>
 </head>
 <body>
 <header>
-  <h1>GreenKrest - Animation Samples</h1>
-  <p>5 animation styles for the GreenKrest website. The page design is kept simple and the same in all 5, so you can judge only the animation.</p>
+  <div class="wrap hbar">
+    <a class="brand" href="#"><span class="mark">G</span>GreenKrest</a>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="cartbtn" id="cartBtn" type="button" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.5h8.9a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
+      <span id="cartTotal">PKR 0</span>
+      <span class="badge" id="cartCount">0</span>
+    </button>
+  </div>
 </header>
-<main>
-  <div class="note">Tap any sample to open it. Watch the hero, the numbers and the product cards, that is where each animation style shows itself.</div>
 
-  <a class="sample" href="anim-1-marquee-motion.html">
-    <span class="num">Animation 1</span>
-    <h2>Marquee Motion</h2>
-    <p>A delivery truck drives across the hero, category names scroll in a moving band, numbers count up and cards slide in. Full of movement and energy.</p>
-  </a>
+<div class="hero">
+  <img class="bgimg" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1600&auto=format&fit=crop" alt="Construction site">
+  <div class="shade"></div>
+  <div class="wrap">
+    <div class="inner">
+      <span class="kick">PRECAST SPECIALISTS - RAWALPINDI</span>
+      <h1>
+        <span class="w" style="--n:0">Strong</span> <span class="w" style="--n:1">materials,</span><br>
+        <span class="w" style="--n:2">built</span> <span class="w" style="--n:3">to</span> <span class="w" style="--n:4">last</span> <span class="w" style="--n:5">generations.</span>
+      </h1>
+      <p>Girders, precast slabs, tiles and flower pots, cast in our own yard and delivered to your site, on time and at fair rates.</p>
+      <div class="cta">
+        <a class="btn g" href="#products">See Products</a>
+        <a class="btn w" href="https://wa.me/923709595953" target="_blank" rel="noopener">Order on WhatsApp</a>
+      </div>
+      <div class="chips">
+        <span class="chip">99+ Products in Stock</span>
+        <span class="chip">Same Day Dispatch</span>
+        <span class="chip">Rawalpindi and Gujar Khan</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <a class="sample" href="anim-2-float-glow.html">
-    <span class="num">Animation 2</span>
-    <h2>Float and Glow</h2>
-    <p>Product pictures float gently in the air, a soft green glow pulses behind the headline and the cards breathe with a glowing shadow. Calm and premium.</p>
-  </a>
+<div class="marquee" aria-hidden="true">
+  <div class="mtrack" id="mtrack">
+    <span>GIRDERS <i>+</i></span><span>PRECAST SLABS <i>+</i></span><span>FLOWER POTS <i>+</i></span><span>TUFF TILES <i>+</i></span><span>GUTKA TILES <i>+</i></span><span>CONCRETE BENCHES <i>+</i></span><span>HOLLOW BLOCKS <i>+</i></span><span>EXHAUST FANS <i>+</i></span>
+  </div>
+</div>
 
-  <a class="sample" href="anim-3-draw-build.html">
-    <span class="num">Animation 3</span>
-    <h2>Draw and Build</h2>
-    <p>A girder drawing draws itself line by line, bars fill up under the numbers and the cards build up one by one. Technical and satisfying.</p>
-  </a>
+<section id="cats">
+  <div class="wrap">
+    <div class="eyebrow">Categories</div>
+    <h2 class="stitle">What we make and supply</h2>
+    <div class="cats">
+      <a class="cat rv" style="--i:0" href="#products"><img src="https://greenkrest.com/api/uploads/6db3c7a83de3d38419ad83e81ccdfe67.png" alt="Girders"><b>Girders</b></a>
+      <a class="cat rv" style="--i:1" href="#products"><img src="https://greenkrest.com/api/uploads/9f9f9cc9c91bf350bfb0a88e0d36b27b.png" alt="Precast Slabs"><b>Precast Slabs</b></a>
+      <a class="cat rv" style="--i:2" href="#products"><img src="https://greenkrest.com/api/uploads/dead8214ca957feba2b1fcb35e590445.png" alt="Flower Pots"><b>Flower Pots</b></a>
+      <a class="cat rv" style="--i:3" href="#products"><img src="https://greenkrest.com/api/uploads/a372d62f5cb86bc89ccbda90c82594f6.png" alt="Tiles"><b>Tiles</b></a>
+      <a class="cat rv" style="--i:4" href="#products"><img src="https://greenkrest.com/api/uploads/a58f62a4c22ed0a386a4c7a086d06dbe.png" alt="Benches"><b>Benches</b></a>
+      <a class="cat rv" style="--i:5" href="#products"><img src="https://greenkrest.com/assets/precast-wall-panel.jpg" alt="Blocks and Panels"><b>Blocks and Panels</b></a>
+    </div>
+  </div>
+</section>
 
-  <a class="sample" href="anim-4-bounce-play.html">
-    <span class="num">Animation 4</span>
-    <h2>Bounce and Play</h2>
-    <p>A small crane swings a slab, the order button bounces softly and the cards bob and pop when touched. Friendly and playful.</p>
-  </a>
+<section id="products">
+  <div class="wrap">
+    <div class="eyebrow">Our Products</div>
+    <h2 class="stitle">Best sellers from the yard</h2>
+    <p class="ssub">Real products and real prices from the GreenKrest store. Try the Add to Cart button, then place the demo order to see the confirmation animation.</p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
 
-  <a class="sample" href="anim-5-flow-steps.html">
-    <span class="num">Animation 5</span>
-    <h2>Flow and Steps</h2>
-    <p>A wave flows under the hero, customer lines change smoothly and the order process lights up step by step: Order, Confirm, Dispatch, Delivered. Smooth and corporate.</p>
-  </a>
-</main>
-<footer>GreenKrest - Animation samples prepared by ABiz Global Services</footer>
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow">Why GreenKrest</div>
+    <h2 class="stitle">Cast in our yard, checked piece by piece</h2>
+    <div class="why" style="margin-top:22px;">
+      <div class="photo rv" style="--i:0"><img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=1400&auto=format&fit=crop" alt="House under construction"></div>
+      <div>
+        <div class="points">
+          <div class="point rv" style="--i:1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Checked strength</b><span>Every girder and slab is cured and checked before it leaves the yard.</span></div></div>
+          <div class="point rv" style="--i:2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span><div><b>Own delivery fleet</b><span>Our own trucks deliver across Rawalpindi and Gujar Khan, most orders within 24 hours.</span></div></div>
+          <div class="point rv" style="--i:3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><b>Fair, open rates</b><span>Yard rates with no middleman. The price you see is the price you pay.</span></div></div>
+          <div class="point rv" style="--i:4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"/></svg></span><div><b>One call ordering</b><span>Call or WhatsApp at 0370 9595953 and our team handles the rest.</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat rv" style="--i:0"><div class="n"><span class="cnt" data-count="99">99</span>+</div><div class="l">Products in stock</div></div>
+      <div class="stat rv" style="--i:1"><div class="n"><span class="cnt" data-count="24">24</span>+</div><div class="l">Years of experience</div></div>
+      <div class="stat rv" style="--i:2"><div class="n"><span class="cnt" data-count="500">500</span>+</div><div class="l">Projects supplied</div></div>
+      <div class="stat rv" style="--i:3"><div class="n"><span class="cnt" data-count="12">12</span></div><div class="l">Areas served</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="eyebrow">Reviews</div>
+    <h2 class="stitle">What customers say</h2>
+    <div class="revbox rv" style="--i:0" id="revbox">
+      <div class="rev on"><p>"Slabs and girders reached our site in Gujar Khan on time. The casting quality is solid, not a single piece was damaged."</p><div class="who">Rana Imtiaz - Gujar Khan</div></div>
+      <div class="rev"><p>"Ordered tuff tiles for our courtyard. Fair rates, honest dealing and the delivery came the next morning."</p><div class="who">Muhammad Asif - Rawalpindi</div></div>
+      <div class="rev"><p>"Their flower pots and concrete benches changed the whole look of our school yard. Highly recommended."</p><div class="who">Haji Nawaz - Rawalpindi</div></div>
+      <div class="dots" id="revdots"></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="cols">
+      <div><b style="font-size:19px;">GreenKrest</b><br><span>Precast, tiles and building materials.<br>Rawalpindi, Punjab, Pakistan.</span></div>
+      <div><b>Call or WhatsApp</b><br><a href="https://wa.me/923709595953" target="_blank" rel="noopener">0370 9595953</a></div>
+      <div><b>Open</b><br><span>Mon to Sat, 8 AM to 8 PM</span></div>
+    </div>
+    <div class="small">Animation showcase for GreenKrest. This is a design demo: products and prices are from the live store, but no real orders are placed from this page.</div>
+  </div>
+</footer>
+
+<div class="orderbar" id="orderbar">
+  <div class="in">
+    <div class="t"><b id="obCount">0 items</b> - Total <b id="obTotal">PKR 0</b></div>
+    <button class="place" id="placeBtn" type="button">Place Order (Demo)</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastText">Added to cart</span>
+</div>
+
+<div class="ovl" id="ovl" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <div class="ckwrap">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46"/><path d="M31 52l13 13 25-27"/></svg>
+    </div>
+    <h3>Order Confirmed</h3>
+    <div class="ord">Order number <b id="ordNo">GK-DEMO-0000</b><br>Our team will call you shortly to confirm delivery.</div>
+    <div class="steps">
+      <span class="fill"></span>
+      <div class="step" data-step="0"><span class="d">1</span>Order Placed</div>
+      <div class="step" data-step="1"><span class="d">2</span>Packed</div>
+      <div class="step" data-step="2"><span class="d">3</span>On the Way</div>
+    </div>
+    <button class="done" id="doneBtn" type="button">Done</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var PRODUCTS = [
+    { id: 67,  name: "Flower Pot",                    cat: "Flower Pots",   price: 1500,   img: "https://greenkrest.com/api/uploads/dead8214ca957feba2b1fcb35e590445.png" },
+    { id: 94,  name: "4' Precast Slab",                cat: "Precast Slabs", price: 850,    img: "https://greenkrest.com/api/uploads/9f9f9cc9c91bf350bfb0a88e0d36b27b.png" },
+    { id: 121, name: "12'6\" Girder",                  cat: "Girders",       price: 5796,   img: "https://greenkrest.com/api/uploads/6db3c7a83de3d38419ad83e81ccdfe67.png" },
+    { id: 88,  name: "Tuff Tile",                      cat: "Tiles",         price: 75,     img: "https://greenkrest.com/api/uploads/a372d62f5cb86bc89ccbda90c82594f6.png" },
+    { id: 109, name: "Concrete Bench",                 cat: "Benches",       price: 15000,  img: "https://greenkrest.com/api/uploads/a58f62a4c22ed0a386a4c7a086d06dbe.png" },
+    { id: 110, name: "Exhaust Fan",                    cat: "Exhaust",       price: 280,    img: "https://greenkrest.com/api/uploads/4ee3d90a724883ff0459850283a4ac76.png" },
+    { id: 13,  name: "Hollow Concrete Blocks (100 Pcs)", cat: "Bricks and Blocks", price: 7800, img: "https://greenkrest.com/assets/precast-wall-panel.jpg" },
+    { id: 28,  name: "Structural MS Girder and I-Beam", cat: "Steel",        price: 275000, img: "https://greenkrest.com/assets/precast-i-beam.jpg" }
+  ];
+  var fmt = function(n){ return "PKR " + n.toLocaleString("en-US"); };
+  var cart = {}; var cartQty = 0; var cartSum = 0;
+
+  /* build product cards */
+  var grid = document.getElementById("grid");
+  PRODUCTS.forEach(function(p, i){
+    var card = document.createElement("article");
+    card.className = "card rv";
+    card.style.setProperty("--i", i % 4);
+    card.innerHTML =
+      '<div class="ph"><img src="' + p.img + '" alt="' + p.name.replace(/"/g, "") + '" loading="lazy"></div>' +
+      '<div class="bd"><span class="cg">' + p.cat + '</span><h3>' + p.name + '</h3>' +
+      '<div class="pr">' + fmt(p.price) + ' <small>per piece</small></div>' +
+      '<button class="addbtn" type="button" data-id="' + p.id + '">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.5h8.9a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>' +
+      '<span>Add to Cart</span></button></div>';
+    grid.appendChild(card);
+  });
+
+  /* Wave Cascade reveal: IntersectionObserver + timed failsafe so nothing can stay hidden */
+  var rvEls = Array.prototype.slice.call(document.querySelectorAll(".rv"));
+  function revealAll(){ rvEls.forEach(function(el){ el.classList.add("in"); }); }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
+    rvEls.forEach(function(el){ io.observe(el); });
+  } else { revealAll(); }
+  setTimeout(revealAll, 2600); /* failsafe: everything visible within 2.6s no matter what */
+
+  /* counters */
+  var counted = false;
+  function runCounters(){
+    if (counted) return; counted = true;
+    document.querySelectorAll(".cnt").forEach(function(el){
+      var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+      var start = null;
+      function tick(ts){
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / 1300, 1);
+        el.textContent = Math.round(target * (0.2 + 0.8 * p));
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+  var statsEl = document.querySelector(".stats");
+  if (statsEl && "IntersectionObserver" in window) {
+    var io2 = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { runCounters(); io2.disconnect(); } }); }, { threshold: 0.3 });
+    io2.observe(statsEl);
+  }
+  setTimeout(runCounters, 3200); /* failsafe */
+
+  /* toast */
+  var toast = document.getElementById("toast"), toastText = document.getElementById("toastText"), toastTimer = null;
+  function showToast(msg){
+    toastText.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 2200);
+  }
+
+  /* cart + fly to cart animation */
+  var cartCount = document.getElementById("cartCount"), cartTotal = document.getElementById("cartTotal");
+  var orderbar = document.getElementById("orderbar"), obCount = document.getElementById("obCount"), obTotal = document.getElementById("obTotal");
+  var cartBtn = document.getElementById("cartBtn");
+  function syncCart(){
+    cartCount.textContent = cartQty;
+    cartTotal.textContent = fmt(cartSum);
+    obCount.textContent = cartQty + (cartQty === 1 ? " item" : " items");
+    obTotal.textContent = fmt(cartSum);
+    orderbar.classList.toggle("show", cartQty > 0);
+  }
+  function flyToCart(imgEl){
+    if (!imgEl || !imgEl.getBoundingClientRect) return;
+    var r1 = imgEl.getBoundingClientRect(), r2 = cartBtn.getBoundingClientRect();
+    var ghost = imgEl.cloneNode();
+    ghost.className = "flyimg";
+    ghost.style.left = r1.left + "px"; ghost.style.top = r1.top + "px";
+    ghost.style.width = r1.width + "px"; ghost.style.height = r1.height + "px";
+    document.body.appendChild(ghost);
+    var dx = r2.left + r2.width / 2 - (r1.left + r1.width / 2);
+    var dy = r2.top + r2.height / 2 - (r1.top + r1.height / 2);
+    var anim = ghost.animate([
+      { transform: "translate(0,0) scale(1)", opacity: 1, borderRadius: "12px" },
+      { transform: "translate(" + dx * 0.5 + "px," + (dy - 90) + "px) scale(.45)", opacity: .95, offset: .55 },
+      { transform: "translate(" + dx + "px," + dy + "px) scale(.06)", opacity: .5, borderRadius: "50%" }
+    ], { duration: 750, easing: "cubic-bezier(.22,.61,.21,1)" });
+    function done(){ if (ghost.parentNode) ghost.parentNode.removeChild(ghost); }
+    if (anim && anim.finished) { anim.finished.then(done).catch(done); } else { setTimeout(done, 800); }
+  }
+  grid.addEventListener("click", function(ev){
+    var btn = ev.target.closest(".addbtn");
+    if (!btn) return;
+    var id = btn.getAttribute("data-id");
+    var p = PRODUCTS.filter(function(x){ return String(x.id) === String(id); })[0];
+    if (!p) return;
+    cart[id] = (cart[id] || 0) + 1; cartQty += 1; cartSum += p.price;
+    var card = btn.closest(".card");
+    var img = card ? card.querySelector(".ph img") : null;
+    flyToCart(img);
+    setTimeout(function(){
+      cartCount.classList.remove("pop"); void cartCount.offsetWidth; cartCount.classList.add("pop");
+    }, 620);
+    syncCart();
+    btn.classList.add("added");
+    var label = btn.querySelector("span"); var old = label.textContent;
+    label.textContent = "Added";
+    setTimeout(function(){ btn.classList.remove("added"); label.textContent = old; }, 1200);
+    showToast("Added to cart: " + p.name);
+  });
+
+  /* order confirmation */
+  var ovl = document.getElementById("ovl");
+  document.getElementById("placeBtn").addEventListener("click", function(){
+    if (cartQty === 0) return;
+    document.getElementById("ordNo").textContent = "GK-DEMO-" + Math.floor(1000 + Math.random() * 9000);
+    ovl.classList.add("open");
+    var steps = ovl.querySelectorAll(".step");
+    steps.forEach(function(s){ s.classList.remove("lit"); });
+    [350, 1100, 1850].forEach(function(t, i){ setTimeout(function(){ steps[i].classList.add("lit"); }, t); });
+  });
+  document.getElementById("doneBtn").addEventListener("click", function(){
+    ovl.classList.remove("open");
+    cart = {}; cartQty = 0; cartSum = 0; syncCart();
+    showToast("Demo order cleared. Thank you.");
+  });
+  ovl.addEventListener("click", function(e){ if (e.target === ovl) ovl.classList.remove("open"); });
+
+  /* reviews crossfade */
+  var revs = Array.prototype.slice.call(document.querySelectorAll(".rev"));
+  var dotsBox = document.getElementById("revdots");
+  var cur = 0, revTimer = null;
+  revs.forEach(function(_, i){
+    var d = document.createElement("button");
+    d.type = "button"; d.setAttribute("aria-label", "Review " + (i + 1));
+    if (i === 0) d.classList.add("on");
+    d.addEventListener("click", function(){ setRev(i); restartRev(); });
+    dotsBox.appendChild(d);
+  });
+  var dots = Array.prototype.slice.call(dotsBox.children);
+  function setRev(i){
+    revs[cur].classList.remove("on"); dots[cur].classList.remove("on");
+    cur = i;
+    revs[cur].classList.add("on"); dots[cur].classList.add("on");
+  }
+  function restartRev(){ clearInterval(revTimer); revTimer = setInterval(function(){ setRev((cur + 1) % revs.length); }, 4200); }
+  restartRev();
+
+  /* duplicate marquee content for a seamless loop */
+  var mt = document.getElementById("mtrack");
+  mt.innerHTML += mt.innerHTML;
+})();
+</script>
 </body>
 </html>
