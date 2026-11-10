@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenKrest - Animation Sample A1: Marquee Motion</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #1a1a1a; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  /* Header */
+  header { border-bottom: 1px solid #e2e2e2; }
+  .header-in { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+  .wordmark { font-size: 24px; font-weight: bold; color: #14532d; text-decoration: none; }
+  .header-phone { font-size: 16px; font-weight: bold; color: #14532d; text-decoration: none; }
+
+  /* Hero */
+  .hero { padding: 56px 0 0 0; text-align: left; }
+  .hero h1 { font-size: 38px; line-height: 1.2; color: #14532d; max-width: 640px; }
+  .hero p { font-size: 17px; line-height: 1.6; color: #444; margin: 16px 0 24px 0; max-width: 560px; }
+  .btn-whatsapp { display: inline-block; background: #16a34a; color: #ffffff; font-size: 16px; font-weight: bold; text-decoration: none; padding: 14px 26px; min-height: 44px; border-radius: 4px; }
+  .btn-whatsapp:hover { background: #14532d; }
+
+  /* Truck lane */
+  .truck-lane { position: relative; height: 92px; margin-top: 40px; overflow: hidden; }
+  .road { position: absolute; left: 0; right: 0; bottom: 10px; height: 4px; background: #555; }
+  .road-dash { position: absolute; left: 0; right: 0; bottom: 22px; height: 3px;
+    background: repeating-linear-gradient(90deg, #d9a40a 0 26px, transparent 26px 52px);
+    animation: dashmove 0.8s linear infinite; }
+  @keyframes dashmove { from { background-position-x: 0; } to { background-position-x: -52px; } }
+  .truck { position: absolute; bottom: 14px; left: -160px; width: 120px; animation: drive 9s linear infinite; }
+  @keyframes drive { from { left: -160px; } to { left: 100%; } }
+  .truck-bounce { animation: bounce 0.5s ease-in-out infinite alternate; }
+  @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-1.5px); } }
+  .wheel { transform-box: fill-box; transform-origin: center; animation: spin 0.7s linear infinite; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* Marquee band */
+  .marquee-band { background: #14532d; color: #ffffff; overflow: hidden; padding: 12px 0; }
+  .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+  .marquee-track span { font-size: 15px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; padding-right: 12px; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* Stats */
+  .stats { border-bottom: 1px solid #e2e2e2; }
+  .stats-in { display: flex; flex-wrap: wrap; }
+  .stat { flex: 1 1 200px; text-align: center; padding: 28px 10px; }
+  .stat + .stat { border-left: 1px solid #e2e2e2; }
+  .stat-num { font-size: 32px; font-weight: bold; color: #14532d; }
+  .stat-label { font-size: 14px; color: #555; margin-top: 4px; }
+
+  /* Products */
+  .products { padding: 44px 0 56px 0; }
+  .products h2 { font-size: 24px; color: #14532d; margin-bottom: 20px; }
+  .product-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { border: 1px solid #ddd; border-radius: 0; background: #fff; animation: slideIn 0.7s ease-out both; }
+  .card:nth-child(2) { animation-delay: 0.08s; }
+  .card:nth-child(3) { animation-delay: 0.16s; }
+  .card:nth-child(4) { animation-delay: 0.24s; }
+  @keyframes slideIn { from { transform: translateX(48px); } to { transform: translateX(0); } }
+  .card img { width: 100%; height: 180px; object-fit: cover; display: block; background: #f2f2f2; }
+  .card-body { padding: 14px; }
+  .card-name { font-size: 16px; font-weight: bold; color: #1a1a1a; }
+  .card-price { font-size: 15px; font-weight: bold; color: #16a34a; margin-top: 6px; }
+
+  /* Footer */
+  footer { background: #f5f5f5; border-top: 1px solid #e2e2e2; padding: 24px 0; text-align: center; }
+  footer .foot-main { font-size: 15px; color: #333; }
+  footer .foot-small { font-size: 12px; color: #888; margin-top: 6px; }
+
+  @media (max-width: 800px) {
+    .product-row { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 30px; }
+  }
+  @media (max-width: 420px) {
+    .product-row { grid-template-columns: 1fr; }
+    .stat + .stat { border-left: none; }
+    .header-phone { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="wordmark" href="#">GreenKrest</a>
+    <a class="header-phone" href="tel:03709595953">0370 9595953</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Precast, Tiles and Building Materials, Delivered.</h1>
+    <p>Girders, precast slabs, tiles and flower pots, made in Rawalpindi and delivered to your site.</p>
+    <a class="btn-whatsapp" href="https://wa.me/923709595953">Order on WhatsApp</a>
+  </div>
+  <div class="truck-lane" aria-hidden="true">
+    <div class="road-dash"></div>
+    <div class="road"></div>
+    <div class="truck">
+      <div class="truck-bounce">
+        <svg width="120" height="62" viewBox="0 0 120 62" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Delivery truck">
+          <rect x="4" y="8" width="58" height="32" fill="#14532d"/>
+          <rect x="8" y="12" width="50" height="10" fill="#1d6a3c"/>
+          <path d="M62 20 L82 20 L92 32 L92 40 L62 40 Z" fill="#16a34a"/>
+          <rect x="80" y="23" width="9" height="9" fill="#cdeffd"/>
+          <rect x="62" y="38" width="30" height="4" fill="#0f4023"/>
+          <g class="wheel">
+            <circle cx="22" cy="46" r="8" fill="#222"/>
+            <circle cx="22" cy="46" r="3.5" fill="#bbb"/>
+          </g>
+          <g class="wheel">
+            <circle cx="76" cy="46" r="8" fill="#222"/>
+            <circle cx="76" cy="46" r="3.5" fill="#bbb"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Girders &#8226; Precast Slabs &#8226; Flower Pots &#8226; Gutka Tiles &#8226; Tuff Tiles &#8226; Benches &#8226; Exhaust Fans &#8226; Bricks &amp; Blocks &#8226;&nbsp;</span>
+    <span>Girders &#8226; Precast Slabs &#8226; Flower Pots &#8226; Gutka Tiles &#8226; Tuff Tiles &#8226; Benches &#8226; Exhaust Fans &#8226; Bricks &amp; Blocks &#8226;&nbsp;</span>
+  </div>
+</div>
+
+<section class="stats">
+  <div class="wrap stats-in">
+    <div class="stat">
+      <div class="stat-num" data-count="99">99+</div>
+      <div class="stat-label">Products</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="24">24+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="500">500+</div>
+      <div class="stat-label">Projects Supplied</div>
+    </div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="wrap">
+    <h2>Featured Products</h2>
+    <div class="product-row">
+      <div class="card">
+        <img src="https://greenkrest.com/api/uploads/dead8214ca957feba2b1fcb35e590445.png" alt="Flower Pot">
+        <div class="card-body">
+          <div class="card-name">Flower Pot</div>
+          <div class="card-price">PKR 1,500</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://greenkrest.com/api/uploads/9f9f9cc9c91bf350bfb0a88e0d36b27b.png" alt="4 foot Precast Slab">
+        <div class="card-body">
+          <div class="card-name">4' Precast Slab</div>
+          <div class="card-price">PKR 850</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://greenkrest.com/api/uploads/a372d62f5cb86bc89ccbda90c82594f6.png" alt="Tuff Tile">
+        <div class="card-body">
+          <div class="card-name">Tuff Tile</div>
+          <div class="card-price">PKR 75</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://greenkrest.com/api/uploads/a58f62a4c22ed0a386a4c7a086d06dbe.png" alt="Concrete Bench">
+        <div class="card-body">
+          <div class="card-name">Concrete Bench</div>
+          <div class="card-price">PKR 15,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-main">GreenKrest - Rawalpindi | 0370 9595953</div>
+    <div class="foot-small">Animation sample for GreenKrest.</div>
+  </div>
+</footer>
+
+<script>
+  // Count-up stats on load. Final values are already in the HTML,
+  // so the strip reads correctly even with JavaScript disabled.
+  (function () {
+    var els = document.querySelectorAll('[data-count]');
+    var dur = 1400;
+    els.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        el.textContent = Math.round(target * p) + '+';
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  })();
+</script>
+
+</body>
+</html>
